@@ -11,13 +11,13 @@ Aspire is a smart career guidance system designed to help students discover care
 
 ## Tech Stack
 
-**AI/ML:** https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white PyTorch
+**AI/ML:** <img width="106" height="28" alt="image" src="https://github.com/user-attachments/assets/e5eb1e7f-e1dc-4a0e-9c86-75d454f77d1d" /> PyTorch
 
-**Frontend:** https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white Flutter
+**Frontend:** <img width="102" height="28" alt="image" src="https://github.com/user-attachments/assets/06fa46c9-6847-46d1-b2e2-05e7f024d62d" /> Flutter
 
-**Backend:** https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/node_js.png Node.js
+**Backend:** <img width="900" height="900" alt="image" src="https://github.com/user-attachments/assets/18297ba7-a90e-48a4-b9fe-b7531351a80f" /> Node.js
 
-**Database:** https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/firebase.png Google Firebase
+**Database:** <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/7d46c7bf-662a-49cf-b0cf-a9ed4113d20f" /> Google Firebase
 
 ## Authors
 - [Justin Ramas (senRyuu286)](https://github.com/senRyuu286)
