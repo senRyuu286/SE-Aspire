@@ -1,4 +1,4 @@
-<img width="480" height="853" alt="image" src="https://github.com/user-attachments/assets/ddc73216-3ccd-4cc1-b4f0-fa9caea9b9bc" /><img width="480" height="853" alt="image" src="https://github.com/user-attachments/assets/8838ee68-3555-45af-9bfa-d712984e8b8b" /># Aspire
+# Aspire
 
 Aspire is a smart career guidance system designed to help students discover career paths that align with their interests, strengths, and future opportunities. Using data-driven insights and personalized recommendations, Aspire bridges the gap between student aspirations and real-world career possibilities.
 
