@@ -25,7 +25,7 @@ Aspire is a smart career guidance system designed to help students discover care
 - [Joel Franco Navales (JoelNavales)](https://github.com/JoelNavales)
 
 ## Contributions
-- Ramas: 
-- Romeo: 
-- Navales: 
+- Ramas: Class Diagram
+- Romeo: Database
+- Navales: UX/UI Design
 
