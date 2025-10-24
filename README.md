@@ -15,9 +15,9 @@ Aspire is a smart career guidance system designed to help students discover care
 
 **Frontend:** Flutter <img width="102" height="28" alt="image" src="https://github.com/user-attachments/assets/06fa46c9-6847-46d1-b2e2-05e7f024d62d" /> 
 
-**Backend:** Node.js <img width="25" height="25" alt="image" src="https://github.com/user-attachments/assets/18297ba7-a90e-48a4-b9fe-b7531351a80f" />
+**Backend:** Node.js <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/18297ba7-a90e-48a4-b9fe-b7531351a80f" />
 
-**Database:** Google Firebase <img width="25" height="25" alt="image" src="https://github.com/user-attachments/assets/7d46c7bf-662a-49cf-b0cf-a9ed4113d20f" />
+**Database:** Google Firebase <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/7d46c7bf-662a-49cf-b0cf-a9ed4113d20f" />
 
 ## Authors
 - [Justin Ramas (senRyuu286)](https://github.com/senRyuu286)
