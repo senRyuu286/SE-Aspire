@@ -21,11 +21,17 @@ Aspire is a smart career guidance system designed to help students discover care
 
 ## Authors
 - [Justin Ramas (senRyuu286)](https://github.com/senRyuu286)
+  + **Contributions**
+    * Class Diagram | Use Case Diagram
+    * Architectural Design | Procedural Design
+    * Skill Assessment Quiz Module
+    * AI Integration
 - [John Anthony Romeo (lemonJAR)](https://github.com/lemonJAR)
+  + **Contributions**
+    * Data Design
+    * Database Development
+    * Register/Login Module
 - [Joel Franco Navales (JoelNavales)](https://github.com/JoelNavales)
-
-## Contributions
-- Ramas: Class Diagram
-- Romeo: Database
-- Navales: UX/UI Design
-
+  + **Contributions**
+    * Interface Design
+    * Flutter UI/UX Design
