@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^4.2.1
+  google_fonts: ^6.3.2
 
 dev_dependencies:
   flutter_test:

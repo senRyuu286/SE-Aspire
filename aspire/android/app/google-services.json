@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "411483504508",
+    "project_id": "aspire-22f9a",
+    "storage_bucket": "aspire-22f9a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411483504508:android:c8decaf87e6a6d65b92ef9",
+        "android_client_info": {
+          "package_name": "com.example.aspire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnzhr1dTlTUuiuZPLaAlk4V3Ua89NE2KI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
