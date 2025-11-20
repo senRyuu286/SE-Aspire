@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'firebase_options.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'models/static/named_routes.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MainApp());
+  runApp(
+    const ProviderScope(
+      child: Aspire()),
+    );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Aspire extends StatelessWidget {
+  const Aspire({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MaterialApp(
+      title: 'Simple Course Enrollment App', 
+      initialRoute: NamedRoutes.homeScreen,
+      routes: NamedRoutes.routes,
     );
   }
 }
