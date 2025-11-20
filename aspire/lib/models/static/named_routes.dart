@@ -1,10 +1,11 @@
-import 'package:aspire/screens/dummy_home_screen.dart';
+
+import 'package:aspire/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
 class NamedRoutes {
-  static final String homeScreen = '/homeScreen';
+  static final String homescreen = '/homescreen';
 
   static Map<String, Widget Function(BuildContext)> routes = {
-    homeScreen: (context) => const DummyHomeScreen(), 
+    homescreen: (context) => const HomeScreen(), 
   };
 }
