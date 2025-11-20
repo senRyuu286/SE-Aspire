@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   firebase_core: ^4.2.1
   google_fonts: ^6.3.2
+  flutter_native_splash: ^2.4.7
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +21,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  #color: "#ffffff"
+  image: 
+    "assets/Logo.png"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/Logo2.png"
