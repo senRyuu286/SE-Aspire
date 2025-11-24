@@ -35,7 +35,7 @@ class Onboarding1 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const PageIndicator(currentIndex: 0, count: 3),
+            const PageIndicator(currentIndex: 0, count: 2),
             const SizedBox(height: 100),
             // BUTTONS
             Padding(
