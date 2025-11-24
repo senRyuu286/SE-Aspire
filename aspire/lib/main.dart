@@ -21,7 +21,7 @@ class Aspire extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Simple Course Enrollment App', 
-      initialRoute: NamedRoutes.homeScreen,
+      initialRoute: NamedRoutes.loginScreen,
       routes: NamedRoutes.routes,
     );
   }
