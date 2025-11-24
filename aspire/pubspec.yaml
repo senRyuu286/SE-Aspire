@@ -28,6 +28,9 @@ flutter:
   assets:
     - "assets/Profile.png"
     - "assets/Content.png"
+    - assets/Graph.png
+    - assets/Onboarding2.png
+    - assets/Onboarding3.png
 
 flutter_native_splash:
   android: true
