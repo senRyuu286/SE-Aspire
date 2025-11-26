@@ -22,8 +22,11 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Align(
           alignment: Alignment.centerRight, 
-          child: Text('ASPIRE', style: TextStyle(color: Color(0XFFFFFFFF)),)
-        ), backgroundColor: Color(0XFF172635),),
+          child: Text('ASPIRE', style: TextStyle(color: Color(0XFFFFFFFF), fontWeight: FontWeight.w800),)
+        ), backgroundColor: Color(0XFF172635),
+        leading: BackButton(
+          color: Color(0XFFFFFFFf),
+        ),),
 
       body: Column(
         children: [
@@ -97,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: const Color.fromARGB(151, 158, 158, 158),
                           ),
                         ),
-                        label: Text('Email/Phone Number'),
+                        label: Text('Password'),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50)
                         ),
@@ -184,6 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         side: BorderSide(width: 1, color: Colors.grey),
                         elevation: 0,
                         backgroundColor: Colors.white10,
+                        foregroundColor: Color(0XFF1A1C1E),
                       ),
                       onPressed: () {
 
@@ -191,7 +195,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.facebook),
+                          Padding(
+                            padding: EdgeInsets.only(right: 5),
+                            child: Icon(Icons.facebook),
+                          ),
                           Text('Facebook'),
                         ],
                       )
@@ -206,7 +213,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextButton.styleFrom(
                         side: BorderSide(width: 1, color: Colors.grey),
                         elevation: 0,
-                        backgroundColor: Colors.white10
+                        backgroundColor: Colors.white10,
+                        foregroundColor: Color(0XFF1A1C1E),
                       ),
                       onPressed: () {
 
@@ -214,7 +222,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.phone_android),
+                          Padding(
+                            padding: EdgeInsets.only(right: 5),
+                            child: Icon(Icons.phone_android),
+                          ),
                           Text('Phone No.'),
                         ],
                       )
@@ -223,7 +234,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
 
-              SizedBox(height: 100,),
+              SizedBox(height: 130,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -231,7 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text("Don't have an account? "),
                   GestureDetector(
                     onTap: () {
-
+                      Navigator.pushNamed(context, '/registerScreen');
                     },
                     child: Text('Register', style: TextStyle(color: Color(0XFF4365DE), fontWeight: FontWeight.w700, )),
                   )
