@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../models/static/app_color.dart';
 
 class QuizButton extends StatelessWidget {
-  const QuizButton({super.key, required this.text, this.buttonFunction});
+  const QuizButton({super.key, required this.text, required this.buttonFunction});
 
   final String text;
-  final Function? buttonFunction;
+  final Function buttonFunction;
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class QuizButton extends StatelessWidget {
       width: double.infinity,
       child: TextButton(
         onPressed: () {
-          // buttonFunction();
+          buttonFunction();
         },
 
         style: TextButton.styleFrom(
