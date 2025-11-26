@@ -1,15 +1,12 @@
-import 'package:aspire/screens/skill_assessment_quiz.dart';
 
 import 'package:aspire/screens/saq_screens/interests_homescreen.dart';
+import 'package:aspire/screens/skill_assessment_quiz.dart';
 
 import 'package:flutter/material.dart';
 
 import '../../screens/get_started_screen.dart';
 import '../../screens/login_screen.dart';
 import '../../screens/register_screen.dart';
-
-
-
 import '../../screens/saq_screens/interests_quizscreen.dart';
 
 
@@ -25,7 +22,6 @@ class NamedRoutes {
   //SKILL ASSESSMENT QUIZ SCREENS
   static final String saqInterestsHomescreen = '/saqInterestsHomescreen';
   static final String saqInterestsQuizscreen = '/saqInterestsQuizscreen';
-  
 
   static Map<String, Widget Function(BuildContext)> routes = {
      //MAIN SCREENS

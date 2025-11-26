@@ -1,6 +1,4 @@
-
 import 'package:aspire/models/static/named_routes.dart';
-
 import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:aspire/widgets/quiz_button.dart';
 import 'package:aspire/widgets/quiz_section_card.dart';

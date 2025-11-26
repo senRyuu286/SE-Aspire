@@ -9,7 +9,6 @@ class QuizButton extends StatelessWidget {
   final String text;
   final Function buttonFunction;
 
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
