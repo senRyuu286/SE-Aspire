@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DummyHomeScreen extends StatelessWidget {
+import '../widgets/bottom_nav_bar.dart';
+
+class DummyHomeScreen extends ConsumerStatefulWidget {
   const DummyHomeScreen({super.key});
 
+  @override
+  ConsumerState<DummyHomeScreen> createState() {
+    return _DummyHomeScreenState();
+  }
+}
+
+
+
+class _DummyHomeScreenState extends ConsumerState<DummyHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,6 +22,7 @@ class DummyHomeScreen extends StatelessWidget {
         title: const Text('Home Screen'),
         backgroundColor: Colors.blue, // You can customize the color
       ),
+      bottomNavigationBar: BottomNavBar(ref: ref,),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
