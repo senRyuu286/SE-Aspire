@@ -27,6 +27,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+   - assets/header_bg.png
+   - assets/balance.jpg
+   - assets/personality.jpg
+   - assets/interests.jpg
+   - assets/skillsandaptitudes.jpg
+
+
   fonts:
     - family: CustomIcons
       fonts:
