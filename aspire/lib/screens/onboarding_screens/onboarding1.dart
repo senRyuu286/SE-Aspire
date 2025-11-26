@@ -1,7 +1,7 @@
 import 'package:aspire/PageIndicator.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:aspire/screens/Onboarding2.dart';
+
+import '../../models/static/named_routes.dart';
 
 class Onboarding1 extends StatelessWidget {
   const Onboarding1({super.key});
@@ -44,7 +44,9 @@ class Onboarding1 extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, NamedRoutes.getStartedScreen);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFE6E8FF),
                         foregroundColor: const Color(0xFF333333),
@@ -67,10 +69,7 @@ class Onboarding1 extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Onboarding2()),
-                        );
+                        Navigator.pushNamed(context, NamedRoutes.onboarding2);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF3366FF),

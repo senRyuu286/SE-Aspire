@@ -1,6 +1,6 @@
 import 'package:aspire/PageIndicator.dart';
+import 'package:aspire/models/static/named_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Onboarding2 extends StatelessWidget {
   const Onboarding2({super.key});
@@ -35,7 +35,7 @@ class Onboarding2 extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const PageIndicator(currentIndex: 1, count: 2),
-            const SizedBox(height: 100),
+            const SizedBox(height: 120),
             // BUTTONS
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60),
@@ -43,7 +43,9 @@ class Onboarding2 extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, NamedRoutes.getStartedScreen);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFE6E8FF),
                         foregroundColor: const Color(0xFF333333),
@@ -66,6 +68,7 @@ class Onboarding2 extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
+                        Navigator.pushNamed(context, NamedRoutes.getStartedScreen);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF3366FF),

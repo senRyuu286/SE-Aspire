@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class NavBarNotifier extends Notifier<int> {
   @override
   int build() {
-    return 0;
+    return 1;
   }
 
   void updateActiveIndex(int index) {
