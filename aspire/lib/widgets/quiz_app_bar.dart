@@ -17,7 +17,7 @@ class QuizAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(
             Icons.arrow_back_rounded),
           onPressed: () {
-            
+            Navigator.pop(context);
           },
           
           iconSize: 40.0,

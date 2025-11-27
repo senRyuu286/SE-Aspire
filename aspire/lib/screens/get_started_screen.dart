@@ -13,7 +13,7 @@ class GetStartedScreen extends StatelessWidget {
               Image.asset('assets/get_started_bg.png'),
 
               Padding(
-                padding: EdgeInsets.fromLTRB(20, 100, 0, 0),
+                padding: EdgeInsets.fromLTRB(26, 100, 0, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -48,7 +48,7 @@ class GetStartedScreen extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.fromLTRB(25, 100, 25, 0),
+            padding: EdgeInsets.fromLTRB(26, 100, 26, 0),
             child: Column(
               children: [
                 TextButton( 
