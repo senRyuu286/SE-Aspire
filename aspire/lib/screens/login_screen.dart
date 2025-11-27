@@ -2,6 +2,8 @@
 import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../models/static/named_routes.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -135,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           backgroundColor: Color(0XFF4365DE),
                         ),
                         onPressed: () {
-
+                          Navigator.pushNamed(context, NamedRoutes.skillAssessmentQuiz);
                         },
                         child: Text('Sign in',
                           style: TextStyle(
