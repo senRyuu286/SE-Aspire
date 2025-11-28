@@ -21,12 +21,12 @@ class QuizSectionCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
           image: DecorationImage(
-            image: AssetImage(imagePath), // Replace with your image URL or Asset Image
-            fit: BoxFit.cover, // Adjust how the image fits within the container
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -34,7 +34,7 @@ class QuizSectionCard extends StatelessWidget {
                 title,
                 style: GoogleFonts.manrope(
                   fontWeight: FontWeight.w600, 
-                  fontSize: 20, 
+                  fontSize: 14, 
                   color: AppColor.textWhite,),
               ),
           

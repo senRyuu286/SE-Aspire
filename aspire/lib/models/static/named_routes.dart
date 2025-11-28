@@ -2,6 +2,9 @@
 import 'package:aspire/screens/onboarding_screens/onboarding2.dart';
 import 'package:aspire/screens/saq_screens/interests_homescreen.dart';
 import 'package:aspire/screens/onboarding_screens/onboarding1.dart';
+import 'package:aspire/screens/saq_screens/personalityandworkstyle_homescreen.dart';
+import 'package:aspire/screens/saq_screens/skillsandaptitudes_homescreen.dart';
+import 'package:aspire/screens/saq_screens/workvalues_homescreen.dart';
 import 'package:aspire/screens/skill_assessment_quiz.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +29,12 @@ class NamedRoutes {
   static final String saqInterestsHomescreen = '/saqInterestsHomescreen';
   static final String saqInterestsQuizscreen = '/saqInterestsQuizscreen';
 
+  static final String saqSkillsAndAptitudes = '/saqSkillsAndAptitudes';
+
+  static final String saqPersonalityAndWorkstyle = '/saqPersonalityAndWorkstyle';
+
+  static final String saqWorkValues = '/saqWorkValues';
+
   static Map<String, Widget Function(BuildContext)> routes = {
     //MAIN SCREENS
     getStartedScreen: (context) => const GetStartedScreen(),
@@ -40,5 +49,11 @@ class NamedRoutes {
     //SKILL ASSESSMENT QUIZ SCREENS
     saqInterestsHomescreen: (context) => const InterestsHomescreen(),
     saqInterestsQuizscreen: (context) => const InterestsQuizscreen(),
+
+    saqSkillsAndAptitudes: (context) => const SkillsandaptitudesHomescreen(),
+
+    saqPersonalityAndWorkstyle: (context) => const PersonalityandworkstyleHomescreen(),
+
+    saqWorkValues: (context) => const WorkvaluesHomescreen(),
   };
 }

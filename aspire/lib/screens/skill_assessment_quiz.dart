@@ -78,10 +78,10 @@ class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
                     physics: NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
                     children: [
-                      QuizSectionCard(imagePath: 'assets/interests.jpg', title: 'Interests',),
-                      QuizSectionCard(imagePath: 'assets/skillsandaptitudes.jpg', title: 'Skills & Aptitudes',),
-                      QuizSectionCard(imagePath: 'assets/balance.jpg', title: 'Work Values',),
-                      QuizSectionCard(imagePath: 'assets/personality.jpg', title: 'Personality & Work Style',),
+                      QuizSectionCard(imagePath: 'assets/interests.png', title: 'Interests',),
+                      QuizSectionCard(imagePath: 'assets/skillsandaptitudes.png', title: 'Skills & Aptitudes',),
+                      QuizSectionCard(imagePath: 'assets/balance.png', title: 'Work Values',),
+                      QuizSectionCard(imagePath: 'assets/personality.png', title: 'Personality & Work Style',),
                       
                     ],
                   ),

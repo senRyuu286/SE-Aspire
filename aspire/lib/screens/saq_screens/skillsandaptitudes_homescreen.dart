@@ -7,16 +7,16 @@ import '../../models/static/app_color.dart';
 import '../../models/static/named_routes.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
-class InterestsHomescreen extends ConsumerStatefulWidget {
-  const InterestsHomescreen({super.key});
+class SkillsandaptitudesHomescreen extends ConsumerStatefulWidget {
+  const SkillsandaptitudesHomescreen({super.key});
 
   @override
-  ConsumerState<InterestsHomescreen> createState() {
-    return _InterestsHomescreenState();
+  ConsumerState<SkillsandaptitudesHomescreen> createState() {
+    return _SkillsandaptitudesHomescreenState();
   }
 }
 
-class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
+class _SkillsandaptitudesHomescreenState extends ConsumerState<SkillsandaptitudesHomescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
       
       body: Column(
         children: [
-          Image.asset('assets/interests_heropage.png'),
+          Image.asset('assets/skillsandaptitudes_heropage.png'),
 
           Expanded(
             child: Padding(
@@ -32,7 +32,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
               child: Column(
                 children: [
                   Text(
-                    'Section 1: Interests',
+                    'Section 2: Skills & Aptitudes',
                     style: GoogleFonts.manrope(
                       fontWeight: FontWeight.w700, 
                       fontSize: 20, 
@@ -44,7 +44,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
             
                   Text(
                     textAlign: TextAlign.center,
-                    '"Discover what you love."\n Identify the activities, topics, and hobbies that naturally excite you to find fields where you will be most engaged.',
+                    '"Define what you excel at."\n Assess your natural talents and technical abilities to highlight the tasks where you perform your best.',
                     style: GoogleFonts.manrope(
                       fontWeight: FontWeight.w500, 
                       fontSize: 16, 
@@ -53,13 +53,12 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
                   ),
             
                   SizedBox(height: 26,),
-            
+
                   Spacer(),
-            
             
                   QuizButton(text: "Get Started", 
                   buttonFunction: () {
-                    Navigator.pushNamed(context, NamedRoutes.saqSkillsAndAptitudes);
+                    Navigator.pushNamed(context, NamedRoutes.saqWorkValues);
                   },),
                 ],
               ),  

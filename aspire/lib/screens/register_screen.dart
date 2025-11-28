@@ -164,7 +164,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ),
 
-                  SizedBox(height: 80,),
+                  SizedBox(height: 40,),
 
                   Row(
                 mainAxisAlignment: MainAxisAlignment.center,

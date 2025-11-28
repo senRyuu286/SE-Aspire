@@ -36,7 +36,7 @@ class _InterestsQuizscreenState extends ConsumerState<InterestsQuizscreen> {
                   'Section 1: Interests',
                   style: GoogleFonts.manrope(
                     fontWeight: FontWeight.w700, 
-                    fontSize: 34, 
+                    fontSize: 20, 
                     color: AppColor.textBlack,
                   ),
                 ),

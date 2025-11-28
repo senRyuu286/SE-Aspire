@@ -7,16 +7,16 @@ import '../../models/static/app_color.dart';
 import '../../models/static/named_routes.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
-class InterestsHomescreen extends ConsumerStatefulWidget {
-  const InterestsHomescreen({super.key});
+class PersonalityandworkstyleHomescreen extends ConsumerStatefulWidget {
+  const PersonalityandworkstyleHomescreen({super.key});
 
   @override
-  ConsumerState<InterestsHomescreen> createState() {
-    return _InterestsHomescreenState();
+  ConsumerState<PersonalityandworkstyleHomescreen> createState() {
+    return _PersonalityandworkstyleHomescreenState();
   }
 }
 
-class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
+class _PersonalityandworkstyleHomescreenState extends ConsumerState<PersonalityandworkstyleHomescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
       
       body: Column(
         children: [
-          Image.asset('assets/interests_heropage.png'),
+          Image.asset('assets/personalityandworkstyle_heropage.png'),
 
           Expanded(
             child: Padding(
@@ -32,7 +32,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
               child: Column(
                 children: [
                   Text(
-                    'Section 1: Interests',
+                    'Section 4: Personality & Work Style',
                     style: GoogleFonts.manrope(
                       fontWeight: FontWeight.w700, 
                       fontSize: 20, 
@@ -44,7 +44,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
             
                   Text(
                     textAlign: TextAlign.center,
-                    '"Discover what you love."\n Identify the activities, topics, and hobbies that naturally excite you to find fields where you will be most engaged.',
+                    '"Understand how you fit."\n Analyze your preferred work environment, decision-making style, and how you collaborate with others.',
                     style: GoogleFonts.manrope(
                       fontWeight: FontWeight.w500, 
                       fontSize: 16, 
@@ -53,13 +53,12 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
                   ),
             
                   SizedBox(height: 26,),
-            
+
                   Spacer(),
-            
             
                   QuizButton(text: "Get Started", 
                   buttonFunction: () {
-                    Navigator.pushNamed(context, NamedRoutes.saqSkillsAndAptitudes);
+                    Navigator.pushNamed(context, NamedRoutes.saqWorkValues);
                   },),
                 ],
               ),  
