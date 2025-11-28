@@ -22,16 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: QuizAppBar(),
-      // 
-      // AppBar(
-      //   title: Align(
-      //     alignment: Alignment.centerRight, 
-      //     child: Text('ASPIRE', style: TextStyle(color: Color(0XFFFFFFFF), fontWeight: FontWeight.w800),)
-      //   ), backgroundColor: Color(0XFF172635),
-      //   leading: BackButton(
-      //     color: Color(0XFFFFFFFf),
-      //   ),),
-
       body: Column(
         children: [
           Stack(
