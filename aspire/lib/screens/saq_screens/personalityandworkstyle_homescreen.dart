@@ -58,7 +58,7 @@ class _PersonalityandworkstyleHomescreenState extends ConsumerState<Personalitya
             
                   QuizButton(text: "Get Started", 
                   buttonFunction: () {
-                    Navigator.pushNamed(context, NamedRoutes.saqWorkValues);
+                    Navigator.pushNamed(context, NamedRoutes.saqInterestsQuizscreen);
                   },),
                 ],
               ),  
