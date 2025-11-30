@@ -51,155 +51,158 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       extendBodyBehindAppBar: true,
       appBar: QuizAppBar(),
 
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Image.asset('assets/login_background.png'),
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(26, 17, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 130,),
+                    Text('Register', style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0XFFEDF1F3),
+                    ),),
+
+                    SizedBox(height: 16,),
+
+                    Text("Let's create your account", style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0XFFEDF1F3),
+                    ),),
+                  ],
+                ),
+              )
+            ]
+          ),
+
+          Padding(
+            padding: const EdgeInsets.fromLTRB(26, 28, 26, 0),
+            child: Column(
               children: [
-                Image.asset('assets/login_background.png'),
-
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(26, 17, 0, 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 130,),
-                      Text('Register', style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.w800,
-                        color: Color(0XFFEDF1F3),
-                      ),),
-
-                      SizedBox(height: 16,),
-
-                      Text("Let's create your account", style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0XFFEDF1F3),
-                      ),),
-                    ],
-                  ),
-                )
-              ]
-            ),
-
-            Padding(
-              padding: const EdgeInsets.fromLTRB(26, 28, 26, 0),
-              child: Column(
-                children: [
-                  Form(
-                    key: _registerFormKey,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          controller: _emailCont,
-                          decoration: InputDecoration(
-                            label: Text('Email Address'),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50)
+                SizedBox(
+                  height: 430,
+                  child: SingleChildScrollView(
+                    child: Form(
+                      key: _registerFormKey,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            controller: _emailCont,
+                            decoration: InputDecoration(
+                              label: Text('Email Address'),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)
+                              ),
                             ),
+                            validator: (value) {
+                              if(value == null || value.isEmpty){
+                                return 'Required';
+                              }
+                              final emailRegex = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
+                              if (!emailRegex.hasMatch(value)) {
+                                return 'Enter a valid email';
+                              }
+                              return null;
+                            },
                           ),
-                          validator: (value) {
-                            if(value == null || value.isEmpty){
-                              return 'Required';
-                            }
-                            final emailRegex = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
-                            if (!emailRegex.hasMatch(value)) {
-                              return 'Enter a valid email';
-                            }
-                            return null;
-                          },
-                        ),
-
-                        SizedBox(height: 28,),
-
-                        TextFormField(
-                          controller: _fNameCont,
-                          decoration: InputDecoration(
-                            label: Text('First Name'),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50)
+                    
+                          SizedBox(height: 28,),
+                    
+                          TextFormField(
+                            controller: _fNameCont,
+                            decoration: InputDecoration(
+                              label: Text('First Name'),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)
+                              ),
                             ),
+                            validator: (value) => value == null || value.isEmpty ? 'Required' : null,
                           ),
-                          validator: (value) => value == null || value.isEmpty ? 'Required' : null,
-                        ),
-
-                        SizedBox(height: 28,),
-
-                        TextFormField(
-                          controller: _lNameCont,
-                          decoration: InputDecoration(
-                            label: Text('Last Name'),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50)
+                          
+                          SizedBox(height: 28,),
+                    
+                          TextFormField(
+                            controller: _lNameCont,
+                            decoration: InputDecoration(
+                              label: Text('Last Name'),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)
+                              ),
                             ),
+                            validator: (value) => value == null || value.isEmpty ? 'Required' : null,
                           ),
-                          validator: (value) => value == null || value.isEmpty ? 'Required' : null,
-                        ),
-
-                        SizedBox(height: 28,),
-
-                        TextFormField(
-                          controller: _passCont,
-                          obscureText: _obscuretext,
-                          decoration: InputDecoration(
-                            label: Text('Password'),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50)
+                    
+                          SizedBox(height: 28,),
+                    
+                          TextFormField(
+                            controller: _passCont,
+                            obscureText: _obscuretext,
+                            decoration: InputDecoration(
+                              label: Text('Password'),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _obscuretext = !_obscuretext;
+                                  });
+                                }, 
+                                icon: Icon(_obscuretext ? Icons.visibility_off_outlined : Icons.visibility_outlined)
+                              ),
                             ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _obscuretext = !_obscuretext;
-                                });
-                              }, 
-                              icon: Icon(_obscuretext ? Icons.visibility_off_outlined : Icons.visibility_outlined)
-                            ),
+                            validator:(value) => value == null || value.isEmpty ? 'Required' : null,
                           ),
-                          validator:(value) => value == null || value.isEmpty ? 'Required' : null,
-                        ),
-
-                        SizedBox(height: 28,),
-
-                        TextFormField(
-                          controller: _confirmPassCont,
-                          obscureText: _obscuretext,
-                          decoration: InputDecoration(
-                            label: Text('Confirm Password'),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50)
+                    
+                          SizedBox(height: 28,),
+                    
+                          TextFormField(
+                            controller: _confirmPassCont,
+                            obscureText: _obscuretext,
+                            decoration: InputDecoration(
+                              label: Text('Confirm Password'),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _obscuretext = !_obscuretext;
+                                  });
+                                }, 
+                                icon: Icon(_obscuretext ? Icons.visibility_off_outlined : Icons.visibility_outlined)
+                              ),
                             ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _obscuretext = !_obscuretext;
-                                });
-                              }, 
-                              icon: Icon(_obscuretext ? Icons.visibility_off_outlined : Icons.visibility_outlined)
-                            ),
+                            validator: (value) {
+                              if(value == null || value.isEmpty){
+                                return 'Required';
+                              }
+                              if(value != _passCont.text){
+                                return 'Passwords do not match';
+                              }
+                              return null;
+                            },
                           ),
-                          validator: (value) {
-                            if(value == null || value.isEmpty){
-                              return 'Required';
-                            }
-                            if(value != _passCont.text){
-                              return 'Passwords do not match';
-                            }
-                            return null;
-                          },
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
 
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(26, 17, 26, 0),
+        padding: const EdgeInsets.fromLTRB(26, 0, 26, 0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -218,7 +221,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
               ),
             ),
 
-            SizedBox(height: 50,),
+            SizedBox(height: 60,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
