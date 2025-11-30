@@ -58,7 +58,7 @@ class _SkillsandaptitudesHomescreenState extends ConsumerState<Skillsandaptitude
             
                   QuizButton(text: "Get Started", 
                   buttonFunction: () {
-                    Navigator.pushNamed(context, NamedRoutes.saqWorkValues);
+                    Navigator.pushNamed(context, NamedRoutes.saqSkillsAndAptitudesQuizscreen);
                   },),
                 ],
               ),  

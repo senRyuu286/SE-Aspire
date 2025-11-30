@@ -3,28 +3,30 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../models/static/app_color.dart';
+import '../utils/providers/quiz_provider.dart';
 
 
 
-class QuizAnswerOption extends StatelessWidget {
-  const QuizAnswerOption({super.key, required this.index, required this.ref});
+class Section3AnswerOption extends StatelessWidget {
+  const Section3AnswerOption({super.key, required this.assignedAnswerIndex, required this.ref, required this.questionID});
 
-  final int index;
+  final int assignedAnswerIndex;
+  final int questionID;
   final WidgetRef ref;
 
   @override
   Widget build(BuildContext context) {
-
-    List<String> likertScaleText = ["1: Hate It", "2: Dislike It", "3: Neutral", "4: Like It", "5: Love It"];
+    final currentSelectedAnswer = ref.watch(quizNotifierProvider);
+    List<String> likertScaleText = ["1: Not Important", "2: Low Priority", "3: Medium Priority", "4: Very High Priority", "5: Non-Negotiable"];
     
     return Card(
       child: ListTile(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
-          side: index == 1 ? BorderSide(color: AppColor.iconGreen, width: 1) : BorderSide.none,
+          side: assignedAnswerIndex == currentSelectedAnswer[questionID].chosenAnswer ? BorderSide(color: AppColor.iconGreen, width: 1) : BorderSide.none,
         ),
       
-        trailing: index == 1 ? 
+        trailing: assignedAnswerIndex == currentSelectedAnswer[questionID].chosenAnswer ? 
         Icon(
           // Icons.radio_button_unchecked_rounded,
           Icons.radio_button_checked_rounded,
@@ -39,7 +41,7 @@ class QuizAnswerOption extends StatelessWidget {
         ),
       
         title: Text(
-          likertScaleText[index], 
+          likertScaleText[assignedAnswerIndex], 
           style: GoogleFonts.manrope(
             fontSize: 16, 
             fontWeight: FontWeight.w500, 
@@ -48,6 +50,7 @@ class QuizAnswerOption extends StatelessWidget {
         ),
         
         onTap: () {
+          ref.read(quizNotifierProvider.notifier).updateActiveIndex(questionID, assignedAnswerIndex);
         }
       ),
     );

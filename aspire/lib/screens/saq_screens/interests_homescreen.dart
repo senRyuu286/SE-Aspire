@@ -59,7 +59,7 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
             
                   QuizButton(text: "Get Started", 
                   buttonFunction: () {
-                    Navigator.pushNamed(context, NamedRoutes.saqSkillsAndAptitudes);
+                    Navigator.pushNamed(context, NamedRoutes.saqInterestsQuizscreen1);
                   },),
                 ],
               ),  
