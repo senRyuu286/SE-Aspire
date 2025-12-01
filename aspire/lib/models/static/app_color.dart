@@ -12,4 +12,5 @@ class AppColor {
   static final Color textBlue = Color(0xFF4365DE);
   static final Color textWhite = Color(0xFFFFFFFF);
   static final Color textGreyGrey = Color(0xFF818994);
+  static final Color textBlack = Color(0xFF1A1C1E);
 }

@@ -1,3 +1,4 @@
+import 'package:aspire/models/static/named_routes.dart';
 import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:aspire/widgets/quiz_button.dart';
 import 'package:aspire/widgets/quiz_section_card.dart';
@@ -78,15 +79,17 @@ class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
                     crossAxisCount: 2,
                     children: [
                       QuizSectionCard(imagePath: 'assets/interests.jpg', title: 'Interests',),
-                      QuizSectionCard(imagePath: 'assets/skillsandaptitude.jpg', title: 'Skills & Aptitudes',),
+                      QuizSectionCard(imagePath: 'assets/skillsandaptitudes.jpg', title: 'Skills & Aptitudes',),
                       QuizSectionCard(imagePath: 'assets/balance.jpg', title: 'Work Values',),
                       QuizSectionCard(imagePath: 'assets/personality.jpg', title: 'Personality & Work Style',),
                       
                     ],
                   ),
                 ),
-
-                QuizButton(text: "Start Quiz")
+                QuizButton(text: "Start Quiz", 
+                buttonFunction: () {
+                  Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
+                },),
               ],
             ),
           ),

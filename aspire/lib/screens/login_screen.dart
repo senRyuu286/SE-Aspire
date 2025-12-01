@@ -1,6 +1,8 @@
-import 'dart:ui';
 
+import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:flutter/material.dart';
+
+import '../models/static/named_routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,14 +21,16 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: Align(
-          alignment: Alignment.centerRight, 
-          child: Text('ASPIRE', style: TextStyle(color: Color(0XFFFFFFFF), fontWeight: FontWeight.w800),)
-        ), backgroundColor: Color(0XFF172635),
-        leading: BackButton(
-          color: Color(0XFFFFFFFf),
-        ),),
+      appBar: QuizAppBar(),
+      // 
+      // AppBar(
+      //   title: Align(
+      //     alignment: Alignment.centerRight, 
+      //     child: Text('ASPIRE', style: TextStyle(color: Color(0XFFFFFFFF), fontWeight: FontWeight.w800),)
+      //   ), backgroundColor: Color(0XFF172635),
+      //   leading: BackButton(
+      //     color: Color(0XFFFFFFFf),
+      //   ),),
 
       body: Column(
         children: [
@@ -35,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Image.asset('assets/login_background.png'),
 
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.fromLTRB(26, 10, 26, 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -61,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
 
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(26, 10, 26, 10),
             child: Column(
               children: [
               Form(
@@ -133,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           backgroundColor: Color(0XFF4365DE),
                         ),
                         onPressed: () {
-
+                          Navigator.pushNamed(context, NamedRoutes.skillAssessmentQuiz);
                         },
                         child: Text('Sign in',
                           style: TextStyle(
