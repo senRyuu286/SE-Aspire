@@ -31,17 +31,42 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     super.dispose();
   }
 
-  void _submitForm() {
+  void _submitForm() async {
     if(_registerFormKey.currentState!.validate()) {
-      ref.read(registerNotifierProvider.notifier).setRegisterInfo(
-        Register(
-          email: _emailCont.text,
-          fName: _fNameCont.text,
-          lName: _lNameCont.text,
-          password: _passCont.text,
-        )
+      final registerInfo = Register(
+        email: _emailCont.text,
+        fName: _fNameCont.text,
+        lName: _lNameCont.text,
+        password: _passCont.text,
       );
-      Navigator.pushNamed(context, '/loginScreen');
+
+      ref.read(registerNotifierProvider.notifier).setRegisterInfo(registerInfo);
+
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Center(child: CircularProgressIndicator());
+        }
+      );
+
+      try {
+        await ref.read(registerNotifierProvider.notifier).registerUserInfirebase(registerInfo);
+
+        if(mounted) Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Registration Successful!')),
+        );
+
+        if(mounted) Navigator.pushNamedAndRemoveUntil(context, '/loginScreen', (route) => false);
+      } catch (e) {
+        if(mounted) Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e.toString()')),
+        );
+      }
     }
   }
 
