@@ -78,11 +78,30 @@ class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
                     physics: NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
                     children: [
-                      QuizSectionCard(imagePath: 'assets/interests.jpg', title: 'Interests',),
-                      QuizSectionCard(imagePath: 'assets/skillsandaptitudes.jpg', title: 'Skills & Aptitudes',),
-                      QuizSectionCard(imagePath: 'assets/balance.jpg', title: 'Work Values',),
-                      QuizSectionCard(imagePath: 'assets/personality.jpg', title: 'Personality & Work Style',),
-                      
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
+                        },
+                        child: QuizSectionCard(imagePath: 'assets/interests.png', title: 'Interests', numOfQuestions: 30,),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, NamedRoutes.saqSkillsAndAptitudesHomescreen);
+                        },
+                        child: QuizSectionCard(imagePath: 'assets/skillsandaptitudes.png', title: 'Skills & Aptitudes', numOfQuestions: 8,),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, NamedRoutes.saqWorkValuesHomescreen);
+                        },
+                        child: QuizSectionCard(imagePath: 'assets/balance.png', title: 'Work Values', numOfQuestions: 7,),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, NamedRoutes.saqPersonalityAndWorkstyleHomescreen);
+                        },
+                        child: QuizSectionCard(imagePath: 'assets/personality.png', title: 'Personality & Work Style', numOfQuestions: 4,),
+                      ),
                     ],
                   ),
                 ),

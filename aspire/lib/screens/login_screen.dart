@@ -312,7 +312,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ],
               ),
 
-              SizedBox(height: 130,),
+              SizedBox(height: 90,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

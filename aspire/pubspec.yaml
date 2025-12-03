@@ -36,13 +36,16 @@ flutter:
    - assets/Onboarding2.png
    - assets/Onboarding3.png
    - assets/header_bg.png
-   - assets/balance.jpg
-   - assets/personality.jpg
-   - assets/interests.jpg
-   - assets/skillsandaptitudes.jpg
+   - assets/balance.png
+   - assets/personality.png
+   - assets/interests.png
+   - assets/skillsandaptitudes.png
    - assets/get_started_bg.png
    - assets/login_background.png
    - assets/interests_heropage.png
+   - assets/personalityandworkstyle_heropage.png
+   - assets/skillsandaptitudes_heropage.png
+   - assets/workvalues_heropage.png
 
   fonts:
     - family: CustomIcons
