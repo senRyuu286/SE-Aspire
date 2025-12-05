@@ -108,6 +108,7 @@ class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
                 QuizButton(text: "Start Quiz", 
                 buttonFunction: () {
                   Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
+                  // Navigator.pushNamed(context, NamedRoutes.saqResultsScreen);
                 },),
               ],
             ),

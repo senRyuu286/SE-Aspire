@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../models/static/app_color.dart';
 import '../../models/static/named_routes.dart';
 import '../../utils/providers/quiz_provider.dart';
+import '../../widgets/answer_all_questions_dialog.dart';
 import '../../widgets/bottom_nav_bar.dart';
 import '../../widgets/section1_answer_option.dart';
 import '../../widgets/quiz_button.dart';
@@ -221,7 +222,16 @@ class _InterestsQuizscreenState extends ConsumerState<InterestsQuizscreen1> {
 
                         QuizButton(text: "Next", 
                         buttonFunction: () {
+                          if (quizQuestions[0].chosenAnswer == 5 ||
+                              quizQuestions[1].chosenAnswer == 5 ||
+                              quizQuestions[2].chosenAnswer == 5 ||
+                              quizQuestions[3].chosenAnswer == 5 ||
+                              quizQuestions[4].chosenAnswer == 5
+                          ) {
+                            answerAllQuestionsDialog(context);
+                          } else {
                             Navigator.pushNamed(context, NamedRoutes.saqInterestsQuizscreen2);
+                          }
                         },),
 
                         SizedBox(height: 20,),

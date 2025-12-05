@@ -18,6 +18,7 @@ dependencies:
   animations: ^2.1.1
   firebase_auth: ^6.1.2
   cloud_firestore: ^6.1.0
+  firebase_ai: ^3.6.0
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,28 @@ flutter:
    - assets/personalityandworkstyle_heropage.png
    - assets/skillsandaptitudes_heropage.png
    - assets/workvalues_heropage.png
+   - assets/quiz_results/Analytical-Logic.png
+   - assets/quiz_results/Artistic.png
+   - assets/quiz_results/Communication.png
+   - assets/quiz_results/Conventional.png
+   - assets/quiz_results/Enterprising.png
+   - assets/quiz_results/Investigative.png
+   - assets/quiz_results/Leadership.png
+   - assets/quiz_results/Realistic.png
+   - assets/quiz_results/Social.png
+   - assets/quiz_results/Tech-Digital.png
+   - assets/quiz_results/Creative-Design.png
+   - assets/quiz_results/High-Income.png
+   - assets/quiz_results/Helping-Society.png
+   - assets/quiz_results/Work-Life-Balance.png
+   - assets/quiz_results/Creativity-Freedom.png
+   - assets/quiz_results/Abstract.png
+   - assets/quiz_results/Collaborative.png
+   - assets/quiz_results/Concrete.png
+   - assets/quiz_results/Independent.png
+   - assets/quiz_results/Risk-Taker.png
+   - assets/quiz_results/Stability-Security.png
+
 
   fonts:
     - family: CustomIcons
