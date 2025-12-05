@@ -41,6 +41,7 @@ flutter:
    - assets/get_started_bg.png
    - assets/login_background.png
    - assets/interests_heropage.png
+   - assets/Appbar.png
 
   fonts:
     - family: CustomIcons

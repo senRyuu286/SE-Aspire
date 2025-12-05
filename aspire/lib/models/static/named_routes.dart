@@ -1,4 +1,3 @@
-
 import 'package:aspire/screens/onboarding_screens/onboarding2.dart';
 import 'package:aspire/screens/saq_screens/interests_homescreen.dart';
 import 'package:aspire/screens/onboarding_screens/onboarding1.dart';
@@ -9,10 +8,11 @@ import '../../screens/get_started_screen.dart';
 import '../../screens/login_screen.dart';
 import '../../screens/register_screen.dart';
 import '../../screens/saq_screens/interests_quizscreen.dart';
+import '../../screens/Homescreen.dart';
 
 class NamedRoutes {
   //MAIN SCREENS
-  // static final String homeScreen = '/homeScreen';
+  static final String homeScreen = '/homeScreen';
   static final String getStartedScreen = '/getStartedScreen';
   static final String loginScreen = '/loginScreen';
   static final String registerScreen = '/registerScreen';
@@ -32,6 +32,7 @@ class NamedRoutes {
     loginScreen: (context) => const LoginScreen(),
     registerScreen: (context) => const RegisterScreen(),
     skillAssessmentQuiz: (context) => const SkillAssessmentQuiz(),
+    homeScreen: (context) => const Homescreen(),
 
     //ONBOARDING SCREENS
     onboarding1: (context) => const Onboarding1(),
