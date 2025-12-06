@@ -33,7 +33,10 @@ class QuizSummaryNotifier extends Notifier<QuizSummary> {
       workValueImagePath1: '', 
       workValueImagePath2: '', 
       workValueTitle1: '', 
-      workValueTitle2: ''
+      workValueTitle2: '', 
+      isCompleted: false, 
+      hasStarted: false, 
+      currentSection: 1
     );
   }
 
@@ -259,7 +262,7 @@ class QuizSummaryNotifier extends Notifier<QuizSummary> {
       case "Helping Society": coreValue1ImagePath = "assets/quiz_results/Helping-Society.png"; break;
       case "Work-Life Balance": coreValue1ImagePath = "assets/quiz_results/Work-Life-Balance.png"; break;
       case "Freedom/Independence": coreValue1ImagePath = "assets/quiz_results/Freedom-Independence.png"; break;
-      case "Security/Stability": coreValue1ImagePath = "assets/quiz_results/Security/Stability.png"; break;
+      case "Security/Stability": coreValue1ImagePath = "assets/quiz_results/Stability-Security.png"; break;
     }
 
     switch (coreValue2Trait) {
@@ -267,7 +270,7 @@ class QuizSummaryNotifier extends Notifier<QuizSummary> {
       case "Helping Society": coreValue2ImagePath = "assets/quiz_results/Helping-Society.png"; break;
       case "Work-Life Balance": coreValue2ImagePath = "assets/quiz_results/Work-Life-Balance.png"; break;
       case "Freedom/Independence": coreValue2ImagePath = "assets/quiz_results/Freedom-Independence.png"; break;
-      case "Security/Stability": coreValue2ImagePath = "assets/quiz_results/Security/Stability.png"; break;
+      case "Security/Stability": coreValue2ImagePath = "assets/quiz_results/Stability-Security.png"; break;
     }
 
 
@@ -279,9 +282,9 @@ class QuizSummaryNotifier extends Notifier<QuizSummary> {
     Key Strengths: '$keyStrength1Trait' (Score $keyStrength1Score/5) and '$keyStrength2Trait' (Score $keyStrength2Score/5).
     Core Values: They prioritize '$coreValue1Trait' and '$coreValue2Trait'.
     Work Style: They prefer '$workValue4' tasks and '$workValue1' environments. When working, they like to $workValue2 and they are $workValue3.
-    
-    Analyze this user profile and generate 5 career recommendations based on the schema.
     """;
+
+    //Based on this user profile, generate 5 career recommendations based on the schema.
 
     state = QuizSummary(
       analyzeQuizSummary: analyzeQuizSummary, 
@@ -312,6 +315,26 @@ class QuizSummaryNotifier extends Notifier<QuizSummary> {
       workValueTitle1: workValueTitle1, 
       workValueTitle2: workValueTitle2
     );
+  }
+
+  void updateHasStarted() {
+    state.hasStarted = true;
+  }
+
+  void updateIsCompleted() {
+    state.isCompleted = true;
+  }
+
+  void updateCurrentSection(int i) {
+    state.currentSection = i;
+  }
+
+  void updateStateToFirebaseState(QuizSummary newState) {
+    state = newState;
+  }
+
+  void resetQuizSummaryData() {
+    state = build();
   }
 }
 

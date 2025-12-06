@@ -5,7 +5,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/static/app_color.dart';
 import '../../models/static/named_routes.dart';
+import '../../utils/firebase_quiz_service.dart';
+import '../../utils/firebase_quiz_summary_service.dart';
 import '../../utils/providers/quiz_provider.dart';
+import '../../utils/providers/quiz_summary_provider.dart';
 import '../../widgets/answer_all_questions_dialog.dart';
 import '../../widgets/bottom_nav_bar.dart';
 import '../../widgets/quiz_button.dart';
@@ -24,6 +27,8 @@ class _InterestsQuizscreenState extends ConsumerState<SkillsandaptitudesQuizscre
   @override
   Widget build(BuildContext context) {
     final quizQuestions = ref.read(quizNotifierProvider);
+    final quizService = FirebaseQuizService();
+    final quizSummaryService = FirebaseQuizSummaryService();
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -305,6 +310,9 @@ class _InterestsQuizscreenState extends ConsumerState<SkillsandaptitudesQuizscre
                           ) {
                             answerAllQuestionsDialog(context);
                           } else {
+                            ref.read(quizSummaryNotifierProvider.notifier).updateCurrentSection(3);
+                            quizService.updateQuizProgress(ref);
+                            quizSummaryService.updateQuizSummary(ref);
                             Navigator.pushNamed(context, NamedRoutes.saqWorkValuesHomescreen);
                           }
                             
