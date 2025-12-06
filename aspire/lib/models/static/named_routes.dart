@@ -4,6 +4,7 @@ import 'package:aspire/screens/saq_screens/interests_homescreen.dart';
 import 'package:aspire/screens/onboarding_screens/onboarding1.dart';
 import 'package:aspire/screens/saq_screens/personalityandworkstyle_homescreen.dart';
 import 'package:aspire/screens/saq_screens/personalityandworkstyle_quizscreen.dart';
+import 'package:aspire/screens/saq_screens/saq_results.dart';
 import 'package:aspire/screens/saq_screens/skillsandaptitudes_homescreen.dart';
 import 'package:aspire/screens/saq_screens/skillsandaptitudes_quizscreen.dart';
 import 'package:aspire/screens/saq_screens/workvalues_homescreen.dart';
@@ -51,6 +52,8 @@ class NamedRoutes {
   static final String saqWorkValuesHomescreen = '/saqWorkValuesHomescreen';
   static final String saqWorkValuesQuizscreen = '/saqWorkValuesQuizscreen';
 
+  static final String saqResultsScreen = '/saqResultsScreen';
+
   static Map<String, Widget Function(BuildContext)> routes = {
     //MAIN SCREENS
     getStartedScreen: (context) => const GetStartedScreen(),
@@ -79,5 +82,7 @@ class NamedRoutes {
 
     saqWorkValuesHomescreen: (context) => const WorkvaluesHomescreen(),
     saqWorkValuesQuizscreen: (context) => const WorkvaluesQuizscreen(),
+  
+    saqResultsScreen: (context) => const SaqResults(),
   };
 }

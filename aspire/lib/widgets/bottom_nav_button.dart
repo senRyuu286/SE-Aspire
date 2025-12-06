@@ -21,6 +21,18 @@ class BottomNavButton extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           ref.read(navBarNotifierProvider.notifier).updateActiveIndex(assignedIndex);
+
+          if (assignedIndex == 0) {
+            //Route to Home
+          } else if (assignedIndex == 1) {
+            //Route to Quiz
+          } else if (assignedIndex == 2) {
+            //Route to Career Guidance
+          } else if (assignedIndex == 3) {
+            //Route to Job Market
+          } else if (assignedIndex == 4) {
+            //Route to Profile
+          }
         }, 
 
         style: TextButton.styleFrom(

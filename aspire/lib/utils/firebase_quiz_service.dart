@@ -1,11 +1,32 @@
-import 'package:aspire/models/question.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class QuizNotifier extends Notifier<List<Question>> {
-  @override
-  List<Question> build() {
-    return [
-      Question(questionID: "01", category: "Section 1", chosenAnswer: 5, 
+import '../models/question.dart';
+import 'providers/quiz_provider.dart';
+
+class FirebaseQuizService {
+  Future<Map<String, dynamic>> initializeAndGetQuizProgress(WidgetRef ref) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      print('Error: No user signed in!');
+      // Handle unauthenticated state, maybe navigate to login
+      return {};
+    }
+
+    final userId = user.uid;
+    final userQuizDocRef = FirebaseFirestore.instance
+        .collection('user_quiz_progress') // A new collection for ongoing progress
+        .doc(userId);
+
+    final docSnapshot = await userQuizDocRef.get();
+
+    if (!docSnapshot.exists) {
+      // If no progress document exists, initialize it
+      print('Initializing new quiz progress for user: $userId');
+
+      List<Question> initialState = [
+        Question(questionID: "01", category: "Section 1", chosenAnswer: 5, 
         questionText: "Building or assembling things (like furniture or computer hardware)."),
       Question(questionID: "02", category: "Section 1", chosenAnswer: 5, 
         questionText: "Working with tools, machinery, or heavy equipment."),
@@ -103,26 +124,70 @@ class QuizNotifier extends Notifier<List<Question>> {
         questionText: "Risk:"),
       Question(questionID: "49", category: "Section 4", chosenAnswer: 5, 
         questionText: "Thinking Style:"),
-    ];
+      ];
+
+      ref.read(quizNotifierProvider.notifier).updateStatetoFirebaseState(initialState);
+
+      Map<String, dynamic> modelMap = {};
+        for (var model in initialState) {
+          modelMap[model.questionID] = model.toMap(); // Using id as key, and the model object as value
+        }
+
+
+
+      final initialProgress = modelMap;
+
+      await userQuizDocRef.set(initialProgress);
+      return initialProgress;
+    } else {
+      // If progress exists, return it
+      print('Loading existing quiz progress for user: $userId');
+
+      List<Question> questionData = [];
+
+      Map<String, Question> modelMap = {};
+      docSnapshot.data()!.forEach((key, value) {
+        modelMap[key] = Question(
+          questionID: value['questionID'],
+          questionText: value['questionText'],
+          category: value['category'],
+          chosenAnswer: value['chosenAnswer'],
+        );
+      });
+
+      for (var questionModel in modelMap.values) {
+        questionData.add(questionModel);
+      }
+
+      questionData.sort((a, b) => a.questionID.compareTo(b.questionID));
+
+      ref.read(quizNotifierProvider.notifier).updateStatetoFirebaseState(questionData);
+      return docSnapshot.data()!;
+    }
   }
 
-  void updateActiveIndex(int questionID, int answerIndex) {
-    List<Question> tempState = List.of(state);
+  Future<void> updateQuizProgress(WidgetRef ref) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      print('Error: No user signed in!');
+      return;
+    }
 
-    tempState[questionID].chosenAnswer = answerIndex;
+    final userId = user.uid;
+    final userQuizDocRef = FirebaseFirestore.instance
+        .collection('user_quiz_progress')
+        .doc(userId);
 
-    state = tempState;
-  }
+    // Use a Map for partial updates
+    List<Question> initialState = ref.read(quizNotifierProvider);
 
-  void updateStatetoFirebaseState(List<Question> newState) {
-    state = newState;
-  }
+    Map<String, dynamic> modelMap = {};
+        for (var model in initialState) {
+          modelMap[model.questionID] = model.toMap(); // Using id as key, and the model object as value
+        }
 
-  void resetQuizData() {
-    state = build();
+      final updateData = modelMap;
+
+    await userQuizDocRef.update(updateData);
   }
 }
-
-final quizNotifierProvider = NotifierProvider<QuizNotifier, List<Question>>(() {
-  return QuizNotifier();
-});
