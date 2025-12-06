@@ -5,7 +5,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/static/app_color.dart';
 import '../../models/static/named_routes.dart';
+import '../../utils/firebase_quiz_service.dart';
 import '../../utils/providers/quiz_provider.dart';
+import '../../widgets/answer_all_questions_dialog.dart';
 import '../../widgets/bottom_nav_bar.dart';
 import '../../widgets/section1_answer_option.dart';
 import '../../widgets/quiz_button.dart';
@@ -23,6 +25,7 @@ class _InterestsQuizscreenState extends ConsumerState<InterestsQuizscreen5> {
   @override
   Widget build(BuildContext context) {
     final quizQuestions = ref.read(quizNotifierProvider);
+    final quizService = FirebaseQuizService();
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -221,7 +224,17 @@ class _InterestsQuizscreenState extends ConsumerState<InterestsQuizscreen5> {
 
                         QuizButton(text: "Next", 
                         buttonFunction: () {
+                          if (quizQuestions[20].chosenAnswer == 5 ||
+                              quizQuestions[21].chosenAnswer == 5 ||
+                              quizQuestions[22].chosenAnswer == 5 ||
+                              quizQuestions[23].chosenAnswer == 5 ||
+                              quizQuestions[24].chosenAnswer == 5
+                          ) {
+                            answerAllQuestionsDialog(context);
+                          } else {
+                            quizService.updateQuizProgress(ref);
                             Navigator.pushNamed(context, NamedRoutes.saqInterestsQuizscreen6);
+                          }
                         },),
 
                         SizedBox(height: 20,),

@@ -5,7 +5,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/static/app_color.dart';
 import '../../models/static/named_routes.dart';
+import '../../utils/firebase_quiz_service.dart';
+import '../../utils/firebase_quiz_summary_service.dart';
 import '../../utils/providers/quiz_provider.dart';
+import '../../utils/providers/quiz_summary_provider.dart';
+import '../../widgets/answer_all_questions_dialog.dart';
 import '../../widgets/bottom_nav_bar.dart';
 import '../../widgets/quiz_button.dart';
 import '../../widgets/section4_answer_option.dart';
@@ -23,6 +27,8 @@ class _InterestsQuizscreenState extends ConsumerState<PersonalityandworkstyleQui
   @override
   Widget build(BuildContext context) {
     final quizQuestions = ref.read(quizNotifierProvider);
+    final quizService = FirebaseQuizService();
+    final quizSummaryService = FirebaseQuizSummaryService();
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -198,7 +204,19 @@ class _InterestsQuizscreenState extends ConsumerState<PersonalityandworkstyleQui
 
                         QuizButton(text: "Submit Quiz", 
                         buttonFunction: () {
-                            Navigator.pushNamed(context, NamedRoutes.skillAssessmentQuiz);
+                          if (quizQuestions[45].chosenAnswer == 5 ||
+                              quizQuestions[46].chosenAnswer == 5 ||
+                              quizQuestions[47].chosenAnswer == 5 ||
+                              quizQuestions[48].chosenAnswer == 5
+                          ) {
+                            answerAllQuestionsDialog(context);
+                          } else {
+                            ref.read(quizSummaryNotifierProvider.notifier).updateQuizSummaryData();
+                            ref.read(quizSummaryNotifierProvider.notifier).updateIsCompleted();
+                            quizService.updateQuizProgress(ref);
+                            quizSummaryService.updateQuizSummary(ref);
+                            Navigator.pushNamed(context, NamedRoutes.saqResultsScreen);
+                          }
                         },),
 
                         SizedBox(height: 20,),

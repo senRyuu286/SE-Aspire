@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../models/static/app_color.dart';
+import '../utils/providers/quiz_summary_provider.dart';
 import '../widgets/bottom_nav_bar.dart';
 
 class SkillAssessmentQuiz extends ConsumerStatefulWidget {
@@ -23,6 +24,8 @@ class SkillAssessmentQuiz extends ConsumerStatefulWidget {
 class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
   @override
   Widget build(BuildContext context) {
+    final quizSummaryData = ref.watch(quizSummaryNotifierProvider);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: QuizAppBar(),
@@ -105,10 +108,33 @@ class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
                     ],
                   ),
                 ),
-                QuizButton(text: "Start Quiz", 
-                buttonFunction: () {
-                  Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
-                },),
+
+                if (quizSummaryData.hasStarted == false) ... [
+                  QuizButton(text: "Start Quiz", 
+                  buttonFunction: () {
+                    Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
+                  },),
+                ] else if (quizSummaryData.hasStarted == true || quizSummaryData.hasStarted == null) ... [
+                  if (quizSummaryData.isCompleted == true) ... [
+                    QuizButton(text: "View Quiz Summary", 
+                    buttonFunction: () {
+                      Navigator.pushNamed(context, NamedRoutes.saqResultsScreen);
+                    },),
+                  ] else ...[
+                    QuizButton(text: "Resume Quiz", 
+                    buttonFunction: () {
+                      if (quizSummaryData.currentSection == 1) {
+                        Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
+                      } else if (quizSummaryData.currentSection == 2) {
+                        Navigator.pushNamed(context, NamedRoutes.saqSkillsAndAptitudesHomescreen);
+                      } else if (quizSummaryData.currentSection == 3) {
+                        Navigator.pushNamed(context, NamedRoutes.saqWorkValuesHomescreen);
+                      } else if (quizSummaryData.currentSection == 4) {
+                        Navigator.pushNamed(context, NamedRoutes.saqPersonalityAndWorkstyleHomescreen);
+                      }
+                    },),
+                  ]
+                ]
               ],
             ),
           ),

@@ -2,6 +2,8 @@ import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../utils/firebase_quiz_service.dart';
+import '../utils/firebase_quiz_summary_service.dart';
 import '../utils/providers/login_service_provider.dart';
 import '../utils/providers/user_provider.dart';
 
@@ -37,6 +39,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     try {
       final loginService = ref.read(loginServiceProvider);
+      final quizService = FirebaseQuizService();
+      final quizSummaryService = FirebaseQuizSummaryService();
       
       // Login user and fetch from Firebase
       final user = await loginService.loginUser(
@@ -51,6 +55,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Login successful! Welcome ${user.fName}')),
       );
+
+      quizService.initializeAndGetQuizProgress(ref);
+      quizSummaryService.initializeAndGetQuizSummary(ref);
 
       // Navigate to skill assessment quiz
       if (mounted) {

@@ -7,7 +7,9 @@ import 'models/static/named_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(
     const ProviderScope(
       child: Aspire()),
@@ -22,6 +24,7 @@ class Aspire extends StatelessWidget {
     return MaterialApp(
       title: 'Simple Course Enrollment App', 
       initialRoute: NamedRoutes.onboarding1,
+      // initialRoute: NamedRoutes.skillAssessmentQuiz,
       routes: NamedRoutes.routes,
     );
   }
