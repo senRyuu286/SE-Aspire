@@ -1,4 +1,5 @@
 import 'package:aspire/models/static/app_color.dart';
+import 'package:aspire/models/static/named_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -26,8 +27,10 @@ class BottomNavButton extends StatelessWidget {
             //Route to Home
           } else if (assignedIndex == 1) {
             //Route to Quiz
+            Navigator.pushNamed(context, NamedRoutes.skillAssessmentQuiz);
           } else if (assignedIndex == 2) {
             //Route to Career Guidance
+            Navigator.pushNamed(context, NamedRoutes.careerRecommendation);
           } else if (assignedIndex == 3) {
             //Route to Job Market
           } else if (assignedIndex == 4) {

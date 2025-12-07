@@ -8,7 +8,7 @@ class FirebaseQuizSummaryService {
   Future<Map<String, dynamic>> initializeAndGetQuizSummary(WidgetRef ref) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
-      print('Error: No user signed in!');
+      // print('Error: No user signed in!');
       // Handle unauthenticated state, maybe navigate to login
       return {};
     }
@@ -22,7 +22,7 @@ class FirebaseQuizSummaryService {
 
     if (!docSnapshot.exists) {
       // If no progress document exists, initialize it
-      print('Initializing new quiz progress for user: $userId');
+      // print('Initializing new quiz progress for user: $userId');
 
       QuizSummary initialState = QuizSummary(
           analyzeQuizSummary: '', 
@@ -68,7 +68,7 @@ class FirebaseQuizSummaryService {
       return initialProgress;
     } else {
       // If progress exists, return it
-      print('Loading existing quiz progress for user: $userId');
+      // print('Loading existing quiz progress for user: $userId');
       QuizSummary questionData = QuizSummary.fromMap(docSnapshot.data()!);
 
 
@@ -80,7 +80,7 @@ class FirebaseQuizSummaryService {
   Future<void> updateQuizSummary(WidgetRef ref) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
-      print('Error: No user signed in!');
+      // print('Error: No user signed in!');
       return;
     }
 

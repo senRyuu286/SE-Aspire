@@ -31,6 +31,7 @@ class SaqAnalysisCard extends StatelessWidget {
         ),
         child: Text(
           title,
+          textAlign: TextAlign.center,
           style: GoogleFonts.manrope(
             fontWeight: FontWeight.w600,
             fontSize: 14,

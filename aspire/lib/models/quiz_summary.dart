@@ -13,10 +13,10 @@ class QuizSummary {
   required this.coreValue1ImagePath, required this.coreValue2ImagePath, 
   required this.workValueImagePath1, required this.workValueImagePath2, 
   required this.workValueTitle1, required this.workValueTitle2, 
-  this.isCompleted, this.hasStarted, this.currentSection});
+  required this.isCompleted, required this.hasStarted, this.currentSection});
   
-  bool? isCompleted;
-  bool ?hasStarted;
+  bool isCompleted;
+  bool hasStarted;
   int? currentSection;
 
   final String analyzeQuizSummary;
@@ -133,8 +133,8 @@ class QuizSummary {
       coreValue2Score: (map['coreValue2Score'] as num).toDouble(),
 
       // Optional fields (if null in the map, they remain null in the object)
-      isCompleted: map['isCompleted'] as bool?,
-      hasStarted: map['hasStarted'] as bool?,
+      isCompleted: map['isCompleted'] as bool,
+      hasStarted: map['hasStarted'] as bool,
       currentSection: map['currentSection'] as int?,
     );
   }
