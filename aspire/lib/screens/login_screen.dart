@@ -2,6 +2,7 @@ import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../utils/firebase_ai_generate_career_recommendation_service.dart';
 import '../utils/firebase_quiz_service.dart';
 import '../utils/firebase_quiz_summary_service.dart';
 import '../utils/providers/login_service_provider.dart';
@@ -41,6 +42,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       final loginService = ref.read(loginServiceProvider);
       final quizService = FirebaseQuizService();
       final quizSummaryService = FirebaseQuizSummaryService();
+      final generateCareerRecommendationService = FirebaseAiGenerateCareerRecommendationsService();
       
       // Login user and fetch from Firebase
       final user = await loginService.loginUser(
@@ -52,12 +54,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ref.read(userProvider.notifier).setUser(user);
 
       // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login successful! Welcome ${user.fName}')),
-      );
-
-      quizService.initializeAndGetQuizProgress(ref);
-      quizSummaryService.initializeAndGetQuizSummary(ref);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login successful! Welcome ${user.fName}')),
+        );
+      }
+      
+      if (mounted) {
+        quizService.initializeAndGetQuizProgress(ref);
+        quizSummaryService.initializeAndGetQuizSummary(ref);
+        generateCareerRecommendationService.initializeAndGeneratedCareer(ref);
+      }
+      
 
       // Navigate to skill assessment quiz
       if (mounted) {
@@ -69,12 +77,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       }
     } catch (e) {
       // Show error message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Login failed: ${e.toString()}'),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Login failed: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+      
     } finally {
       if (mounted) {
         setState(() {

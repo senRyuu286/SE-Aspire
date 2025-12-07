@@ -1,4 +1,4 @@
-import 'package:aspire/PageIndicator.dart';
+import 'package:aspire/page_indicator.dart';
 import 'package:aspire/models/static/named_routes.dart';
 import 'package:flutter/material.dart';
 

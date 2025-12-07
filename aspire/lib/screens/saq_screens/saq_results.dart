@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../utils/firebase_ai_generate_career_recommendation_service.dart';
 import '../../utils/firebase_quiz_service.dart';
 import '../../utils/firebase_quiz_summary_service.dart';
+import '../../utils/providers/generated_career_provider.dart';
 import '../../utils/providers/quiz_provider.dart';
 import '../../utils/providers/quiz_summary_provider.dart';
 import '../../widgets/bottom_nav_bar.dart';
@@ -28,6 +30,7 @@ class _SaqResultsState extends ConsumerState<SaqResults> {
     final quizSummary = ref.watch(quizSummaryNotifierProvider);
     final quizService = FirebaseQuizService();
     final quizSummaryService = FirebaseQuizSummaryService();
+    final generateCareerRecommendationService = FirebaseAiGenerateCareerRecommendationsService();
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -229,10 +232,11 @@ class _SaqResultsState extends ConsumerState<SaqResults> {
 
                     ref.read(quizNotifierProvider.notifier).resetQuizData();
                     ref.read(quizSummaryNotifierProvider.notifier).resetQuizSummaryData();
+                    ref.read(generatedCareerNotifierProvider.notifier).resetGeneratedCareerData();
 
                     quizService.updateQuizProgress(ref);
                     quizSummaryService.updateQuizSummary(ref);
-
+                    generateCareerRecommendationService.updateGeneratedCareer(ref.read(generatedCareerNotifierProvider));
                     
                     Navigator.pushNamed(
                       context,

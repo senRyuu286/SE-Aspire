@@ -9,7 +9,7 @@ class FirebaseQuizService {
   Future<Map<String, dynamic>> initializeAndGetQuizProgress(WidgetRef ref) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
-      print('Error: No user signed in!');
+      // print('Error: No user signed in!');
       // Handle unauthenticated state, maybe navigate to login
       return {};
     }
@@ -23,7 +23,7 @@ class FirebaseQuizService {
 
     if (!docSnapshot.exists) {
       // If no progress document exists, initialize it
-      print('Initializing new quiz progress for user: $userId');
+      // print('Initializing new quiz progress for user: $userId');
 
       List<Question> initialState = [
         Question(questionID: "01", category: "Section 1", chosenAnswer: 5, 
@@ -141,7 +141,7 @@ class FirebaseQuizService {
       return initialProgress;
     } else {
       // If progress exists, return it
-      print('Loading existing quiz progress for user: $userId');
+      // print('Loading existing quiz progress for user: $userId');
 
       List<Question> questionData = [];
 
@@ -169,7 +169,7 @@ class FirebaseQuizService {
   Future<void> updateQuizProgress(WidgetRef ref) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
-      print('Error: No user signed in!');
+      // print('Error: No user signed in!');
       return;
     }
 

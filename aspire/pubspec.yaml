@@ -68,7 +68,7 @@ flutter:
    - assets/quiz_results/Independent.png
    - assets/quiz_results/Risk-Taker.png
    - assets/quiz_results/Stability-Security.png
-
+   - assets/career_card_bg.png
 
   fonts:
     - family: CustomIcons

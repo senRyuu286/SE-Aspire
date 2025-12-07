@@ -114,7 +114,7 @@ class _SkillAssessmentQuizState extends ConsumerState<SkillAssessmentQuiz> {
                   buttonFunction: () {
                     Navigator.pushNamed(context, NamedRoutes.saqInterestsHomescreen);
                   },),
-                ] else if (quizSummaryData.hasStarted == true || quizSummaryData.hasStarted == null) ... [
+                ] else if (quizSummaryData.hasStarted == true) ... [
                   if (quizSummaryData.isCompleted == true) ... [
                     QuizButton(text: "View Quiz Summary", 
                     buttonFunction: () {

@@ -12,6 +12,7 @@ import 'package:aspire/screens/saq_screens/workvalues_quizscreen.dart';
 import 'package:aspire/screens/skill_assessment_quiz.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/career_result_screen.dart';
 import '../../screens/get_started_screen.dart';
 import '../../screens/login_screen.dart';
 import '../../screens/register_screen.dart';
@@ -29,6 +30,7 @@ class NamedRoutes {
   static final String loginScreen = '/loginScreen';
   static final String registerScreen = '/registerScreen';
   static final String skillAssessmentQuiz = '/skillAssessmentQuiz';
+  static final String careerRecommendation = '/careerRecommendation';
 
   //ONBOARDING SCREENS
   static final String onboarding1 = 'onboarding1';
@@ -60,6 +62,8 @@ class NamedRoutes {
     loginScreen: (context) => const LoginScreen(),
     registerScreen: (context) => const RegisterScreen(),
     skillAssessmentQuiz: (context) => const SkillAssessmentQuiz(),
+    careerRecommendation: (context) => const CareerResultScreen(),
+
 
     //ONBOARDING SCREENS
     onboarding1: (context) => const Onboarding1(),
