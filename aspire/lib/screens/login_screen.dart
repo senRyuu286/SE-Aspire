@@ -124,9 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-
                       SizedBox(height: 40),
-
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
@@ -136,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             Navigator.pushNamed(
                               context,
-                              NamedRoutes.homeScreen,
+                              NamedRoutes.careerGuidance,
                             );
                           },
                           child: Text(

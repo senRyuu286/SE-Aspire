@@ -42,6 +42,9 @@ flutter:
    - assets/login_background.png
    - assets/interests_heropage.png
    - assets/Appbar.png
+   - assets/Card.png
+   - assets/Card2.png
+   - assets/Job Card.png
 
   fonts:
     - family: CustomIcons
