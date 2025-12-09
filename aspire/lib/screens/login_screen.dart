@@ -1,35 +1,105 @@
 import 'package:aspire/widgets/quiz_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../models/static/named_routes.dart';
+import '../utils/firebase_ai_generate_career_recommendation_service.dart';
+import '../utils/firebase_quiz_service.dart';
+import '../utils/firebase_quiz_summary_service.dart';
+import '../utils/providers/login_service_provider.dart';
+import '../utils/providers/user_provider.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _loginFormKey = GlobalKey<FormState>();
   final _emailPhoneNumberCont = TextEditingController();
   final _passwordCont = TextEditingController();
+  bool _isLoading = false;
+
+  @override
+  void dispose() {
+    _emailPhoneNumberCont.dispose();
+    _passwordCont.dispose();
+    super.dispose();
+  }
+
+  /// Handle login with Firebase
+  void _handleLogin() async {
+    if (!_loginFormKey.currentState!.validate()) {
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final loginService = ref.read(loginServiceProvider);
+      final quizService = FirebaseQuizService();
+      final quizSummaryService = FirebaseQuizSummaryService();
+      final generateCareerRecommendationService = FirebaseAiGenerateCareerRecommendationsService();
+      
+      // Login user and fetch from Firebase
+      final user = await loginService.loginUser(
+        _emailPhoneNumberCont.text,
+        _passwordCont.text,
+      );
+
+      // Cache user in provider
+      ref.read(userProvider.notifier).setUser(user);
+
+      // Show success message
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login successful! Welcome ${user.fName}')),
+        );
+      }
+      
+      if (mounted) {
+        quizService.initializeAndGetQuizProgress(ref);
+        quizSummaryService.initializeAndGetQuizSummary(ref);
+        generateCareerRecommendationService.initializeAndGeneratedCareer(ref);
+      }
+      
+
+      // Navigate to skill assessment quiz
+      if (mounted) {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          '/skillAssessmentQuiz',
+          (route) => false,
+        );
+      }
+    } catch (e) {
+      // Show error message
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Login failed: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+      
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: QuizAppBar(),
-
-      //
-      // AppBar(
-      //   title: Align(
-      //     alignment: Alignment.centerRight,
-      //     child: Text('ASPIRE', style: TextStyle(color: Color(0XFFFFFFFF), fontWeight: FontWeight.w800),)
-      //   ), backgroundColor: Color(0XFF172635),
-      //   leading: BackButton(
-      //     color: Color(0XFFFFFFFf),
-      //   ),),
       body: Column(
         children: [
           Stack(
@@ -87,60 +157,82 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email is required';
+                        }
+                        final emailRegex = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
+                        if (!emailRegex.hasMatch(value)) {
+                          return 'Enter a valid email';
+                        }
+                        return null;
+                      },
+                    ),
 
                       SizedBox(height: 16),
 
-                      TextFormField(
-                        controller: _passwordCont,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                            padding: EdgeInsets.all(0),
-                            child: Icon(
-                              Icons.lock_outlined,
-                              color: const Color.fromARGB(151, 158, 158, 158),
-                            ),
-                          ),
-                          label: Text('Password'),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
+                    TextFormField(
+                      controller: _passwordCont,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(0),
+                          child: Icon(
+                            Icons.lock_outlined,
+                            color: const Color.fromARGB(151, 158, 158, 158),
                           ),
                         ),
                       ),
-                      SizedBox(height: 16),
-                      GestureDetector(
-                        onTap: () {
-                          //Place Forgot Password here
-                        },
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Forgot password?',
-                            style: TextStyle(
-                              color: const Color(0xFF4365DE),
-                              fontWeight: FontWeight.w700,
-                            ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password is required';
+                        }
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: 16,),
+
+                    GestureDetector(
+                      onTap: () {
+                        //Place Forgot Password here
+                      },
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text('Forgot password?', 
+                          style: TextStyle(
+                            color: const Color(0xFF4365DE),
+                            fontWeight: FontWeight.w700
                           ),
                         ),
                       ),
-                      SizedBox(height: 40),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0XFF4365DE),
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, NamedRoutes.jobMarket);
-                          },
-                          child: Text(
-                            'Sign in',
-                            style: TextStyle(
-                              color: const Color(0xFFFFFFFF),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                            ),
-                          ),
+                    ),
+
+                    SizedBox(height: 40,),
+
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0XFF4365DE),
                         ),
+                        onPressed: _isLoading ? null : () => _handleLogin(),
+                        child: _isLoading 
+                          ? SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              ),
+                            )
+                          : Text('Sign in',
+                              style: TextStyle(
+                                color: const Color(0xFFFFFFFF),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16,
+                              ),
+                            ),
                       ),
                     ],
                   ),
@@ -148,13 +240,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SizedBox(height: 26),
 
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        color: Colors.grey, // Customize the line color
-                        thickness: 1,
-                      ),
+              Row(
+                children: [
+                  Expanded(
+                    child:  Divider(
+                      color: Colors.grey,
+                      thickness: 1,
                     ),
 
                     Padding(
@@ -165,11 +256,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
 
-                    Expanded(
-                      child: Divider(
-                        color: Colors.grey, // Customize the line color
-                        thickness: 1,
-                      ),
+                  Expanded(
+                    child:  Divider(
+                      color: Colors.grey,
+                      thickness: 1,
                     ),
                   ],
                 ),
@@ -229,7 +319,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
 
-                SizedBox(height: 130),
+              SizedBox(height: 90,),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

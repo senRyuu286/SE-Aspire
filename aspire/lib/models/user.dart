@@ -5,7 +5,7 @@ class User{
   final String lName;
   final String password;
   final int age;
-  final double float;
+  final double progress;
 
   const User({
     required this.userID, 
@@ -14,6 +14,6 @@ class User{
     required this.lName, 
     required this.password, 
     required this.age, 
-    required this.float
+    required this.progress,
     });
 }
