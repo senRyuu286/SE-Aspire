@@ -36,6 +36,7 @@ class BottomNavButton extends StatelessWidget {
             Navigator.pushNamed(context, NamedRoutes.jobMarket);
             //Route to Job Market
           } else if (assignedIndex == 4) {
+            Navigator.pushNamed(context, NamedRoutes.profileScreen);
             //Route to Profile
           }
         }, 

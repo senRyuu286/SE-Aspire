@@ -62,6 +62,49 @@ class _JobMarket extends ConsumerState<JobMarket> {
                   ),
                 ),
               ),
+               Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Text(
+                'Popular Careers',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                'View All',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF7459E4),
+                ),
+                ),
+              ),
+              ],
+            ),
+            SizedBox(
+              height: 220,
+              child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                GestureDetector(
+                onTap: () {},
+                child: Image.asset('assets/Card.png'),
+                ),
+                const SizedBox(width: 12),
+                GestureDetector(
+                onTap: () {},
+                child: Image.asset('assets/Card2.png'),
+                ),
+              ],
+              ),
+            ),
               SizedBox(height: 20),
               Column(
                 children: [

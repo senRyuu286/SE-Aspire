@@ -23,7 +23,7 @@ import '../../screens/saq_screens/interests_quizscreen4.dart';
 import '../../screens/saq_screens/interests_quizscreen5.dart';
 import '../../screens/saq_screens/interests_quizscreen6.dart';
 import '../../screens/job_market.dart';
-
+import '../../screens/profile_screen.dart';
 class NamedRoutes {
   //MAIN SCREENS
   static final String homeScreen = '/HomeScreen';
@@ -33,6 +33,7 @@ class NamedRoutes {
   static final String skillAssessmentQuiz = '/skillAssessmentQuiz';
   static final String careerRecommendation = '/careerRecommendation';
   static final String jobMarket = '/JobMarket';
+  static final String profileScreen = '/ProfileScreen';
 
   //ONBOARDING SCREENS
   static final String onboarding1 = 'onboarding1';
@@ -67,6 +68,7 @@ class NamedRoutes {
     careerRecommendation: (context) => const CareerResultScreen(),
     homeScreen: (context) => const HomeScreen(),
     jobMarket: (context) => const JobMarket(),
+    profileScreen: (context) => const ProfileScreen(),
 
 
     //ONBOARDING SCREENS
