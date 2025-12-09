@@ -44,6 +44,11 @@ flutter:
    - assets/get_started_bg.png
    - assets/login_background.png
    - assets/interests_heropage.png
+   - assets/Appbar.png
+   - assets/Card.png
+   - assets/Card2.png
+   - assets/Job Card.png
+   - assets/Chart.png
    - assets/personalityandworkstyle_heropage.png
    - assets/skillsandaptitudes_heropage.png
    - assets/workvalues_heropage.png

@@ -44,7 +44,10 @@ class Onboarding2 extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, NamedRoutes.getStartedScreen);
+                        Navigator.pushNamed(
+                          context,
+                          NamedRoutes.getStartedScreen,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFE6E8FF),
@@ -68,7 +71,10 @@ class Onboarding2 extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, NamedRoutes.getStartedScreen);
+                        Navigator.pushNamed(
+                          context,
+                          NamedRoutes.getStartedScreen,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF3366FF),
@@ -90,7 +96,6 @@ class Onboarding2 extends StatelessWidget {
                 ],
               ),
             ),
-
           ],
         ),
       ),
