@@ -106,9 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-
                       SizedBox(height: 16),
-
                       GestureDetector(
                         onTap: () {
                           //Place Forgot Password here
@@ -132,10 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             backgroundColor: Color(0XFF4365DE),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              NamedRoutes.careerGuidance,
-                            );
+                            Navigator.pushNamed(context, NamedRoutes.jobMarket);
                           },
                           child: Text(
                             'Sign in',

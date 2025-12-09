@@ -4,16 +4,16 @@ import '../../models/static/named_routes.dart';
 import '../../widgets/bottom_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Careerguidance extends ConsumerStatefulWidget {
-  const Careerguidance({super.key});
+class JobMarket extends ConsumerStatefulWidget {
+  const JobMarket({super.key});
 
   @override
-  ConsumerState<Careerguidance> createState() {
-    return _CareerguidanceState();
+  ConsumerState<JobMarket> createState() {
+    return _JobMarket();
   }
 }
 
-class _CareerguidanceState extends ConsumerState<Careerguidance> {
+class _JobMarket extends ConsumerState<JobMarket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
