@@ -45,6 +45,7 @@ flutter:
    - assets/Card.png
    - assets/Card2.png
    - assets/Job Card.png
+   - assets/Chart.png
 
   fonts:
     - family: CustomIcons

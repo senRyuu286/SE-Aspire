@@ -38,20 +38,36 @@ class _JobMarket extends ConsumerState<JobMarket> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Container(
-                  height: 50,
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(color: Colors.grey.shade300),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 6,
+                        color: Colors.black.withOpacity(0.1),
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search for Career",
-                      border: InputBorder.none,
-                      prefixIcon: Icon(Icons.search),
+                  child: SizedBox(
+                    height: 50,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search careers...",
+                        icon: Icon(Icons.search),
+                      ),
                     ),
                   ),
                 ),
+              ),
+              SizedBox(height: 20),
+              Column(
+                children: [
+                  Image(image: AssetImage('assets/Chart.png')),
+                  SizedBox(height: 20),
+                ],
               ),
               Container(
                 padding: const EdgeInsets.all(15),
