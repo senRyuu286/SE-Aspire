@@ -42,8 +42,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       final loginService = ref.read(loginServiceProvider);
       final quizService = FirebaseQuizService();
       final quizSummaryService = FirebaseQuizSummaryService();
-      final generateCareerRecommendationService = FirebaseAiGenerateCareerRecommendationsService();
-      
+      final generateCareerRecommendationService =
+          FirebaseAiGenerateCareerRecommendationsService();
+
       // Login user and fetch from Firebase
       final user = await loginService.loginUser(
         _emailPhoneNumberCont.text,
@@ -59,19 +60,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           SnackBar(content: Text('Login successful! Welcome ${user.fName}')),
         );
       }
-      
+
       if (mounted) {
         quizService.initializeAndGetQuizProgress(ref);
         quizSummaryService.initializeAndGetQuizSummary(ref);
         generateCareerRecommendationService.initializeAndGeneratedCareer(ref);
       }
-      
 
-      // Navigate to skill assessment quiz
+      // g usab nko ug Navigate dung sa HomeScreen
       if (mounted) {
         Navigator.pushNamedAndRemoveUntil(
           context,
-          '/skillAssessmentQuiz',
+          '/HomeScreen',
           (route) => false,
         );
       }
@@ -85,7 +85,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           ),
         );
       }
-      
     } finally {
       if (mounted) {
         setState(() {
@@ -156,83 +155,93 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Email is required';
+                          }
+                          final emailRegex = RegExp(
+                            r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$',
+                          );
+                          if (!emailRegex.hasMatch(value)) {
+                            return 'Enter a valid email';
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email is required';
-                        }
-                        final emailRegex = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
-                        if (!emailRegex.hasMatch(value)) {
-                          return 'Enter a valid email';
-                        }
-                        return null;
-                      },
-                    ),
 
                       SizedBox(height: 16),
 
-                    TextFormField(
-                      controller: _passwordCont,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.all(0),
-                          child: Icon(
-                            Icons.lock_outlined,
-                            color: const Color.fromARGB(151, 158, 158, 158),
-                          ),
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Password is required';
-                        }
-                        return null;
-                      },
-                    ),
-
-                    SizedBox(height: 16,),
-
-                    GestureDetector(
-                      onTap: () {
-                        //Place Forgot Password here
-                      },
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text('Forgot password?', 
-                          style: TextStyle(
-                            color: const Color(0xFF4365DE),
-                            fontWeight: FontWeight.w700
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(height: 40,),
-
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0XFF4365DE),
-                        ),
-                        onPressed: _isLoading ? null : () => _handleLogin(),
-                        child: _isLoading 
-                          ? SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                              ),
-                            )
-                          : Text('Sign in',
-                              style: TextStyle(
-                                color: const Color(0xFFFFFFFF),
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                              ),
+                      TextFormField(
+                        controller: _passwordCont,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.all(0),
+                            child: Icon(
+                              Icons.lock_outlined,
+                              color: const Color.fromARGB(151, 158, 158, 158),
                             ),
+                          ),
+                          label: Text('Password'),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Password is required';
+                          }
+                          return null;
+                        },
+                      ),
+
+                      SizedBox(height: 16),
+
+                      GestureDetector(
+                        onTap: () {
+                          //Place Forgot Password here
+                        },
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            'Forgot password?',
+                            style: TextStyle(
+                              color: const Color(0xFF4365DE),
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(height: 40),
+
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0XFF4365DE),
+                          ),
+                          onPressed: _isLoading ? null : () => _handleLogin(),
+                          child: _isLoading
+                              ? SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.white,
+                                    ),
+                                  ),
+                                )
+                              : Text(
+                                  'Sign in',
+                                  style: TextStyle(
+                                    color: const Color(0xFFFFFFFF),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                        ),
                       ),
                     ],
                   ),
@@ -240,13 +249,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
                 SizedBox(height: 26),
 
-              Row(
-                children: [
-                  Expanded(
-                    child:  Divider(
-                      color: Colors.grey,
-                      thickness: 1,
-                    ),
+                Row(
+                  children: [
+                    Expanded(child: Divider(color: Colors.grey, thickness: 1)),
 
                     Padding(
                       padding: EdgeInsets.all(25),
@@ -256,11 +261,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
 
-                  Expanded(
-                    child:  Divider(
-                      color: Colors.grey,
-                      thickness: 1,
-                    ),
+                    Expanded(child: Divider(color: Colors.grey, thickness: 1)),
                   ],
                 ),
 
@@ -319,7 +320,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   ],
                 ),
 
-              SizedBox(height: 90,),
+                SizedBox(height: 90),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

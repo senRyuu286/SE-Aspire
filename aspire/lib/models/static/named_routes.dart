@@ -1,4 +1,5 @@
-import 'package:aspire/screens/job_market.dart';
+
+import 'package:aspire/screens/Homescreen.dart';
 import 'package:aspire/screens/onboarding_screens/onboarding2.dart';
 import 'package:aspire/screens/saq_screens/interests_homescreen.dart';
 import 'package:aspire/screens/onboarding_screens/onboarding1.dart';
@@ -11,31 +12,27 @@ import 'package:aspire/screens/saq_screens/workvalues_homescreen.dart';
 import 'package:aspire/screens/saq_screens/workvalues_quizscreen.dart';
 import 'package:aspire/screens/skill_assessment_quiz.dart';
 import 'package:flutter/material.dart';
-
 import '../../screens/career_result_screen.dart';
 import '../../screens/get_started_screen.dart';
-import '../../screens/job_market.dart';
 import '../../screens/login_screen.dart';
 import '../../screens/register_screen.dart';
-import '../../screens/saq_screens/interests_quizscreen.dart';
-import '../../screens/Homescreen.dart';
-import '../../screens/job_market.dart';
 import '../../screens/saq_screens/interests_quizscreen1.dart';
 import '../../screens/saq_screens/interests_quizscreen2.dart';
 import '../../screens/saq_screens/interests_quizscreen3.dart';
 import '../../screens/saq_screens/interests_quizscreen4.dart';
 import '../../screens/saq_screens/interests_quizscreen5.dart';
 import '../../screens/saq_screens/interests_quizscreen6.dart';
+import '../../screens/job_market.dart';
 
 class NamedRoutes {
   //MAIN SCREENS
-  static final String homeScreen = '/homeScreen';
+  static final String homeScreen = '/HomeScreen';
   static final String getStartedScreen = '/getStartedScreen';
   static final String loginScreen = '/loginScreen';
   static final String registerScreen = '/registerScreen';
   static final String skillAssessmentQuiz = '/skillAssessmentQuiz';
-  static final String jobMarket = '/JobMarket';
   static final String careerRecommendation = '/careerRecommendation';
+  static final String jobMarket = '/JobMarket';
 
   //ONBOARDING SCREENS
   static final String onboarding1 = 'onboarding1';
@@ -67,9 +64,9 @@ class NamedRoutes {
     loginScreen: (context) => const LoginScreen(),
     registerScreen: (context) => const RegisterScreen(),
     skillAssessmentQuiz: (context) => const SkillAssessmentQuiz(),
-    homeScreen: (context) => const Homescreen(),
-    jobMarket: (context) => const JobMarket(),
     careerRecommendation: (context) => const CareerResultScreen(),
+    homeScreen: (context) => const HomeScreen(),
+    jobMarket: (context) => const JobMarket(),
 
 
     //ONBOARDING SCREENS

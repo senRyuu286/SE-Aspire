@@ -4,16 +4,16 @@ import '../../models/static/named_routes.dart';
 import '../../widgets/bottom_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Homescreen extends ConsumerStatefulWidget {
-  const Homescreen({super.key});
+class HomeScreen extends ConsumerStatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  ConsumerState<Homescreen> createState() {
-    return _HomescreenState();
+  ConsumerState<HomeScreen> createState() {
+    return _HomeScreenState();
   }
 }
 
-class _HomescreenState extends ConsumerState<Homescreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
