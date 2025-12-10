@@ -25,6 +25,7 @@ class BottomNavButton extends StatelessWidget {
 
           if (assignedIndex == 0) {
             //Route to Home
+            Navigator.pushNamed(context, NamedRoutes.homeScreen);
           } else if (assignedIndex == 1) {
             //Route to Quiz
             Navigator.pushNamed(context, NamedRoutes.skillAssessmentQuiz);
@@ -32,8 +33,10 @@ class BottomNavButton extends StatelessWidget {
             //Route to Career Guidance
             Navigator.pushNamed(context, NamedRoutes.careerRecommendation);
           } else if (assignedIndex == 3) {
+            Navigator.pushNamed(context, NamedRoutes.jobMarket);
             //Route to Job Market
           } else if (assignedIndex == 4) {
+            Navigator.pushNamed(context, NamedRoutes.profileScreen);
             //Route to Profile
           }
         }, 
