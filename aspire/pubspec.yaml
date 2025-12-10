@@ -75,6 +75,7 @@ flutter:
    - assets/quiz_results/Risk-Taker.png
    - assets/quiz_results/Stability-Security.png
    - assets/career_card_bg.png
+   - assets/digital_marketing_07.jpg
 
   fonts:
     - family: CustomIcons

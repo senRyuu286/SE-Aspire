@@ -4,16 +4,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'firebase_options.dart';
 import 'models/static/named_routes.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
-  runApp(
-    const ProviderScope(
-      child: Aspire()),
-    );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const ProviderScope(child: Aspire()));
 }
 
 class Aspire extends StatelessWidget {
@@ -22,7 +16,8 @@ class Aspire extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Simple Course Enrollment App', 
+      debugShowCheckedModeBanner: false,
+      title: 'Simple Course Enrollment App',
       initialRoute: NamedRoutes.onboarding1,
       // initialRoute: NamedRoutes.skillAssessmentQuiz,
       routes: NamedRoutes.routes,
