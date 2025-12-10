@@ -259,12 +259,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     // Left Side - Image Placeholder with Heart Icon
                     Stack(
                       children: [
-                        Container(
-                          width: 120,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[500], // Placeholder color
-                            borderRadius: BorderRadius.circular(12.0),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12.0),
+                          child: Image.asset(
+                            'assets/UX:UI.png',
+                            width: 120,
+                            height: 120,
+                            fit: BoxFit.cover,
                           ),
                         ),
                         Positioned(
@@ -379,12 +380,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     // Left Side - Image Placeholder with Heart Icon
                     Stack(
                       children: [
-                        Container(
-                          width: 120,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[500], // Placeholder color
-                            borderRadius: BorderRadius.circular(12.0),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12.0),
+                          child: Image.asset(
+                            'assets/electrical_engineer.jpg',
+                            width: 120,
+                            height: 120,
+                            fit: BoxFit.cover,
                           ),
                         ),
                         Positioned(
@@ -464,6 +466,127 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               ),
                               const Text(
                                 '\₱50,000 - 120,000',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF5E35B1), // Deep purple color
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16.0),
+                  border: Border.all(color: Colors.grey.shade200),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.03),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Left Side - Image Placeholder with Heart Icon
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12.0),
+                          child: Image.asset(
+                            'assets/pilot.jpg',
+                            width: 120,
+                            height: 120,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          top: 8,
+                          right: 8,
+                          child: Container(
+                            padding: const EdgeInsets.all(6),
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.favorite_border,
+                              color: Colors.red,
+                              size: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 16.0),
+                    // Right Side - Text Content
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Aircraft Pilot',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 12.0),
+                          // Participation Row
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.person_outline,
+                                size: 16,
+                                color: Colors.grey[600],
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                'Open to Fresh Graduates',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8.0),
+                          // Duration and Price Row
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.access_time,
+                                    size: 16,
+                                    color: Colors.grey[600],
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    'full-time',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey[600],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const Text(
+                                '\₱100,000 - 300,000',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
