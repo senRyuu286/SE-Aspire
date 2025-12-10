@@ -70,9 +70,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       children: [
                         CircleAvatar(
                           radius: 36,
-                          backgroundImage: const AssetImage(
-                            'assets/Profile.png',
-                          ),
+                          child: const Icon(Icons.person, size: 36),
                         ),
                         const SizedBox(width: 12),
                         Column(
@@ -225,6 +223,53 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     },
                   );
                 },
+              ),
+              const SizedBox(height: 30),
+              Text(
+                'Account Settings',
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.lock_outline),
+                    title: Text(
+                      'Change Password',
+                      style: GoogleFonts.poppins(),
+                    ),
+                    trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                    onTap: () {
+                      // Navigate to Change Password Screen
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.person_outline),
+                    title: Text('Edit Profile', style: GoogleFonts.poppins()),
+                    trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                    onTap: () {
+                      // Navigate to Edit Profile Screen
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.logout),
+                    title: Text('Logout', style: GoogleFonts.poppins()),
+                    trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                    onTap: () async {
+                      await _auth.signOut();
+                      // Optionally clear cached user
+                      ref.read(userProvider.notifier).clearUser();
+                      // Navigate to Login Screen or Landing Page
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/loginScreen',
+                        (route) => false,
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
