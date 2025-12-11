@@ -15,10 +15,8 @@ class FirebaseAuthService {
     required String password,
   }) async {
     try {
-      firebase_auth.UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: email, 
-        password: password
-      );
+      firebase_auth.UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
 
       // Get the newly created user's UID
       String uid = userCredential.user!.uid;
@@ -34,10 +32,9 @@ class FirebaseAuthService {
         'progress': 0.0,
         'createdAt': FieldValue.serverTimestamp(),
       }, SetOptions(merge: true));
-
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw Exception('Registration failed: ${e.message}');
-    }catch (e) {
+    } catch (e) {
       throw Exception('Registration failed: $e');
     }
   }
@@ -48,16 +45,17 @@ class FirebaseAuthService {
     required String password,
   }) async {
     try {
-      firebase_auth.UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      firebase_auth.UserCredential userCredential = await _auth
+          .signInWithEmailAndPassword(email: email, password: password);
 
       String uid = userCredential.user!.uid;
 
-      DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore.collection('users').doc(uid).get();
+      DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
+          .collection('users')
+          .doc(uid)
+          .get();
 
-      if(!userDoc.exists) {
+      if (!userDoc.exists) {
         throw Exception('User profile not found');
       }
 
@@ -66,7 +64,7 @@ class FirebaseAuthService {
       User user = User(
         userID: uid.hashCode,
         email: userData['email'] ?? '',
-        fName: userData['fName;'] ?? '',
+        fName: userData['fName'] ?? '',
         lName: userData['lName'] ?? '',
         password: userData['password'] ?? '',
         age: userData['age'] ?? 0,
@@ -74,7 +72,6 @@ class FirebaseAuthService {
       );
 
       return user;
-
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw Exception(_handleAuthException(e));
     } catch (e) {
