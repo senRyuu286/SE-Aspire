@@ -1,5 +1,6 @@
 
 import 'package:aspire/screens/onboarding_screens/onboarding2.dart';
+import 'package:aspire/screens/recommended_learning_path.dart';
 import 'package:aspire/screens/saq_screens/interests_homescreen.dart';
 import 'package:aspire/screens/onboarding_screens/onboarding1.dart';
 import 'package:aspire/screens/skill_assessment_quiz.dart';
@@ -26,6 +27,8 @@ class NamedRoutes {
   static final String saqInterestsHomescreen = '/saqInterestsHomescreen';
   static final String saqInterestsQuizscreen = '/saqInterestsQuizscreen';
 
+  static final String recommendedLearningPath = '/recommendedLearningPath';
+
   static Map<String, Widget Function(BuildContext)> routes = {
     //MAIN SCREENS
     getStartedScreen: (context) => const GetStartedScreen(),
@@ -39,6 +42,28 @@ class NamedRoutes {
 
     //SKILL ASSESSMENT QUIZ SCREENS
     saqInterestsHomescreen: (context) => const InterestsHomescreen(),
+<<<<<<< Updated upstream
     saqInterestsQuizscreen: (context) => const InterestsQuizscreen(),
+=======
+    saqInterestsQuizscreen1: (context) => const InterestsQuizscreen1(),
+    saqInterestsQuizscreen2: (context) => const InterestsQuizscreen2(),
+    saqInterestsQuizscreen3: (context) => const InterestsQuizscreen3(),
+    saqInterestsQuizscreen4: (context) => const InterestsQuizscreen4(),
+    saqInterestsQuizscreen5: (context) => const InterestsQuizscreen5(),
+    saqInterestsQuizscreen6: (context) => const InterestsQuizscreen6(),
+
+    saqSkillsAndAptitudesHomescreen: (context) => const SkillsandaptitudesHomescreen(),
+    saqSkillsAndAptitudesQuizscreen: (context) => const SkillsandaptitudesQuizscreen(),
+
+    saqPersonalityAndWorkstyleHomescreen: (context) => const PersonalityandworkstyleHomescreen(),
+    saqPersonalityAndWorkstyleQuizscreen: (context) => const PersonalityandworkstyleQuizscreen(),
+
+    saqWorkValuesHomescreen: (context) => const WorkvaluesHomescreen(),
+    saqWorkValuesQuizscreen: (context) => const WorkvaluesQuizscreen(),
+  
+    saqResultsScreen: (context) => const SaqResults(),
+
+    recommendedLearningPath: (context) => const RecommendedLearningPath(recommendedPath: null,),
+>>>>>>> Stashed changes
   };
 }
