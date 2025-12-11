@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../models/static/app_color.dart';
 
 class QuizSectionCard extends StatelessWidget {
-  const QuizSectionCard({super.key, required this.imagePath, required this.title});
+  const QuizSectionCard({super.key, required this.imagePath, required this.title, required this.numOfQuestions});
 
   final String imagePath;
   final String title;
+  final int numOfQuestions;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +22,12 @@ class QuizSectionCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
           image: DecorationImage(
-            image: AssetImage(imagePath), // Replace with your image URL or Asset Image
-            fit: BoxFit.cover, // Adjust how the image fits within the container
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -34,7 +35,7 @@ class QuizSectionCard extends StatelessWidget {
                 title,
                 style: GoogleFonts.manrope(
                   fontWeight: FontWeight.w600, 
-                  fontSize: 20, 
+                  fontSize: 14, 
                   color: AppColor.textWhite,),
               ),
           
@@ -44,7 +45,7 @@ class QuizSectionCard extends StatelessWidget {
                 width: double.infinity,
                 child: Text(
                   textAlign: TextAlign.end,
-                  '0/10',
+                  "$numOfQuestions",
                   style: GoogleFonts.manrope(
                     fontWeight: FontWeight.w500, 
                     fontSize: 14, 

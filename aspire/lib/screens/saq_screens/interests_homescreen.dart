@@ -26,39 +26,44 @@ class _InterestsHomescreenState extends ConsumerState<InterestsHomescreen> {
         children: [
           Image.asset('assets/interests_heropage.png'),
 
-          Padding(
-            padding: EdgeInsets.fromLTRB(26, 34, 26, 0),
-            child: Column(
-              children: [
-                Text(
-                  'Section 1: Interests',
-                  style: GoogleFonts.manrope(
-                    fontWeight: FontWeight.w700, 
-                    fontSize: 34, 
-                    color: AppColor.textBlack,
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(26, 34, 26, 26),
+              child: Column(
+                children: [
+                  Text(
+                    'Section 1: Interests',
+                    style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.w700, 
+                      fontSize: 20, 
+                      color: AppColor.textBlack,
+                    ),
                   ),
-                ),
-
-                SizedBox(height: 18,),
-
-                Text(
-                  textAlign: TextAlign.center,
-                  '"Discover what you love."\n Identify the activities, topics, and hobbies that naturally excite you to find fields where you will be most engaged.',
-                  style: GoogleFonts.manrope(
-                    fontWeight: FontWeight.w500, 
-                    fontSize: 15, 
-                    color: AppColor.textGrey,
+            
+                  SizedBox(height: 18,),
+            
+                  Text(
+                    textAlign: TextAlign.center,
+                    '"Discover what you love."\n Identify the activities, topics, and hobbies that naturally excite you to find fields where you will be most engaged.',
+                    style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.w500, 
+                      fontSize: 16, 
+                      color: AppColor.textGrey,
+                    ),
                   ),
-                ),
-
-                SizedBox(height: 26,),
-
-                QuizButton(text: "Get Started", 
-                buttonFunction: () {
-                  Navigator.pushNamed(context, NamedRoutes.saqInterestsQuizscreen);
-                },),
-              ],
-            ),  
+            
+                  SizedBox(height: 26,),
+            
+                  Spacer(),
+            
+            
+                  QuizButton(text: "Get Started", 
+                  buttonFunction: () {
+                    Navigator.pushNamed(context, NamedRoutes.saqInterestsQuizscreen1);
+                  },),
+                ],
+              ),  
+            ),
           ),
         ],
       )

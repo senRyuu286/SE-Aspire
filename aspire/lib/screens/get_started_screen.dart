@@ -17,25 +17,31 @@ class GetStartedScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('ASPIRE', style: TextStyle(
+                    Text(
+                      'ASPIRE',
+                      style: TextStyle(
                         color: Color(0XFF4365DE),
                         fontWeight: FontWeight.w800,
                         fontSize: 40,
                       ),
                     ),
 
-                    SizedBox(height: 24,),
+                    SizedBox(height: 24),
 
-                    Text('Elevate your\ncareer\njourney', style: TextStyle(
+                    Text(
+                      'Elevate your\ncareer\njourney',
+                      style: TextStyle(
                         color: Color(0XFFFFFFFF),
                         fontWeight: FontWeight.w800,
                         fontSize: 40,
                       ),
                     ),
 
-                    SizedBox(height: 16,),
+                    SizedBox(height: 16),
 
-                    Text('Powered to help you grow, learn, and \nsucceed in your careed', style: TextStyle(
+                    Text(
+                      'Powered to help you grow, learn, and \nsucceed in your careed',
+                      style: TextStyle(
                         color: Color(0XFFACB5BB),
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
@@ -44,14 +50,14 @@ class GetStartedScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            ]
+            ],
           ),
 
           Padding(
             padding: EdgeInsets.fromLTRB(26, 100, 26, 0),
             child: Column(
               children: [
-                TextButton( 
+                TextButton(
                   style: TextButton.styleFrom(
                     fixedSize: Size(double.infinity, 60),
                     backgroundColor: Color(0XFF4365DE),
@@ -59,20 +65,20 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, '/registerScreen');
-                  }, 
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding: EdgeInsets.all(5),
-                        child: Icon(Icons.flag_outlined, size: 30,),
+                        child: Icon(Icons.flag_outlined, size: 30),
                       ),
-                      Text('Find Career', style: TextStyle(fontSize: 16),),
+                      Text('Find Career', style: TextStyle(fontSize: 16)),
                     ],
-                  )
+                  ),
                 ),
 
-                SizedBox(height: 20,),
+                SizedBox(height: 20),
 
                 TextButton(
                   style: TextButton.styleFrom(
@@ -80,22 +86,20 @@ class GetStartedScreen extends StatelessWidget {
                     backgroundColor: Color(0XFFF3F6FC),
                     foregroundColor: Color(0XFF1A1C1E),
                   ),
-                  onPressed: () {
-
-                  }, 
+                  onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding: EdgeInsets.all(5),
-                        child: Icon(Icons.edit, size: 30,),
+                        child: Icon(Icons.edit, size: 30),
                       ),
-                      Text('Become seller', style: TextStyle(fontSize: 16),),
+                      Text('Become Mentor', style: TextStyle(fontSize: 16)),
                     ],
-                  )
+                  ),
                 ),
 
-                SizedBox(height: 160,),
+                SizedBox(height: 160),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -105,13 +109,19 @@ class GetStartedScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.pushNamed(context, '/loginScreen');
                       },
-                      child: Text('Login', style: TextStyle(color: Color(0XFF4365DE), fontWeight: FontWeight.w700, )),
-                    )
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Color(0XFF4365DE),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

@@ -55,17 +55,22 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
         if(mounted) Navigator.pop(context);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Registration Successful!')),
-        );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Registration Successful!')),
+          );
+        }
+        
 
         if(mounted) Navigator.pushNamedAndRemoveUntil(context, '/loginScreen', (route) => false);
       } catch (e) {
         if(mounted) Navigator.pop(context);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e.toString()')),
-        );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: $e.toString()')),
+          );
+        }
       }
     }
   }
