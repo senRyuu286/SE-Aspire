@@ -66,7 +66,7 @@ class RecommendedLearningPath extends ConsumerWidget {
                               ),
                             ),
 
-                            SizedBox(height: 50,),
+                            SizedBox(height: 50),
 
                             Expanded(
                               child: SingleChildScrollView(
@@ -141,7 +141,6 @@ class RecommendedLearningPath extends ConsumerWidget {
                                       ),
                                     ),
                                     const SizedBox(height: 20),
-
                                     // Top Universities Section
                                     Text(
                                       'Top Universities',

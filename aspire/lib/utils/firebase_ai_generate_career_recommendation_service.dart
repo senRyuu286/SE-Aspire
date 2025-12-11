@@ -46,26 +46,24 @@ class FirebaseAiGenerateCareerRecommendationsService {
 
               // For recommended learning path for each career
               'recommended_path': Schema.object(
-                description: "A structured path of educational steps to reach this career, specific to the Philippine educational system.",
-                properties: {
-                  'shs_track': Schema.string(
-                    description: "The recommended Senior High School (SHS) academic track or TVL strand (e.g., 'STEM', 'ABM', 'ICT').",
-                  ),
-                  'college_course': Schema.string(
-                    description: "The recommended bachelor's degree course (e.g., 'BS Computer Science', 'BS Architecture').",
-                  ),
-                  // NEW PROPERTY MOVED INSIDE HERE
-                  'top_universities': Schema.array(
-                    items: Schema.string(),
-                    description: "A list of 3 highly recommended universities in the Philippines known for the associated college_course (e.g., 'UP Diliman', 'Ateneo de Manila University', 'De La Salle University').",
-                  ),
-                  // END OF MOVED PROPERTY
-                  'certifications': Schema.array(
-                    items: Schema.string(),
-                    description: "A list of 2-3 essential certifications or trainings (e.g., 'Google Data Analytics Certificate', 'CPA License').",
-                  ),
-                },
+            description: "A structured path of educational steps and practical guidance to reach this career, specific to the Philippine context.",
+            properties: {
+              'shs_track': Schema.string(
+                description: "The recommended Senior High School (SHS) academic track or TVL strand (e.g., 'STEM', 'ABM', 'ICT').",
               ),
+              'college_course': Schema.string(
+                description: "The recommended bachelor's degree course (e.g., 'BS Computer Science', 'BS Architecture').",
+              ),
+              'top_universities': Schema.array(
+                items: Schema.string(),
+                description: "A list of 3 highly recommended universities in the Philippines known for the associated college_course (e.g., 'UP Diliman', 'Ateneo de Manila University', 'De La Salle University').",
+              ),
+              'certifications': Schema.array(
+                items: Schema.string(),
+                description: "A list of 2-3 essential certifications or trainings (e.g., 'Google Data Analytics Certificate', 'CPA License').",
+              ),
+            },
+          ),
 
             },
           ),

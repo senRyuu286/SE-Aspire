@@ -8,17 +8,20 @@ class RecommendedPath {
     required this.shsTrack,
     required this.collegeCourse,
     required this.topUniversities,
-    required this.certifications,
+    required this.certifications, 
   });
 
   factory RecommendedPath.fromJson(Map<String, dynamic> json) {
     return RecommendedPath(
       shsTrack: json['shs_track'] ?? '',
+
       collegeCourse: json['college_course'] ?? '',
+
       topUniversities: (json['top_universities'] as List<dynamic>?)
         ?.map((e) => e.toString()).toList() ?? [],
+
       certifications: (json['certifications'] as List<dynamic>?)
-        ?.map((e) => e.toString()).toList() ?? []
+        ?.map((e) => e.toString()).toList() ?? [],
     );
   }
 

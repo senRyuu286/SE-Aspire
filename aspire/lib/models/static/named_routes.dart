@@ -80,8 +80,6 @@ class NamedRoutes {
 
     //SKILL ASSESSMENT QUIZ SCREENS
     saqInterestsHomescreen: (context) => const InterestsHomescreen(),
-    saqInterestsQuizscreen: (context) => const InterestsQuizscreen(),
-
     saqInterestsQuizscreen1: (context) => const InterestsQuizscreen1(),
     saqInterestsQuizscreen2: (context) => const InterestsQuizscreen2(),
     saqInterestsQuizscreen3: (context) => const InterestsQuizscreen3(),
