@@ -11,13 +11,11 @@ Aspire is a smart career guidance system designed to help students discover care
 
 ## Tech Stack
 
-**AI/ML:** PyTorch <img width="106" height="28" alt="image" src="https://github.com/user-attachments/assets/e5eb1e7f-e1dc-4a0e-9c86-75d454f77d1d" /> 
+**AI:** Google Gemini
 
-**Frontend:** Flutter <img width="102" height="28" alt="image" src="https://github.com/user-attachments/assets/06fa46c9-6847-46d1-b2e2-05e7f024d62d" /> 
+**Frontend:** Flutter
 
-**Backend:** Node.js <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/18297ba7-a90e-48a4-b9fe-b7531351a80f" />
-
-**Database:** Google Firebase <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/7d46c7bf-662a-49cf-b0cf-a9ed4113d20f" />
+**Backend and Database:** Google Firebase 
 
 ## Authors
 - [Justin Ramas (senRyuu286)](https://github.com/senRyuu286)
@@ -26,11 +24,13 @@ Aspire is a smart career guidance system designed to help students discover care
     * Architectural Design | Procedural Design
     * Skill Assessment Quiz Module
     * AI Integration
+    * AI Career Generation
 - [John Anthony Romeo (lemonJAR)](https://github.com/lemonJAR)
   + **Contributions**
     * Data Design
     * Database Development
     * Register/Login Module
+    * AI Learning Path Generation
 - [Joel Franco Navales (JoelNavales)](https://github.com/JoelNavales)
   + **Contributions**
     * Interface Design
